@@ -1,6 +1,6 @@
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize('devdb', 'tugg@tuggdevdb', 'Pass1234', {
-    host: 'tuggdevdb.database.windows.net',
+var sequelize = new Sequelize('axkme', 'axkme@axkme', 'Axkdb2016', {
+    host: 'axkme.database.windows.net',
     dialect: 'mssql',
     pool: {
         maxConnections: 100,
