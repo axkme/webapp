@@ -1,0 +1,8 @@
+﻿@media screen and (max-width: 992px) {
+    .category-list {
+        float:left;
+    }
+    .section-title {
+        width: 100%;
+    }
+}
