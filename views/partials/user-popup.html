@@ -1,0 +1,28 @@
+﻿<div class="popup animated {{animate}}" *ngIf="visible">
+    <div class="popup-content">
+        <div class="close">
+            <i class="fa fa-remove" (click)="close()"></i>
+        </div>
+        <div class="circle-border">
+            <i class="fa fa-user"></i>
+        </div>
+        <form>
+            <p class="message-block" *ngIf="hasError">
+                <span>{{errorMessage}}</span>
+            </p>
+            <div class="form-group">
+                <label>นามแฝง</label>
+                <input type="text" class="form-control" [(ngModel)]="user.username"/>
+            </div>
+            <div class="form-group">
+                <label>รหัสผ่าน</label>
+                <input type="password" class="form-control" [(ngModel)]="user.password" />
+            </div>
+           
+            <div class="button-group">
+                <button type="button" class="btn btn-success" (click)="login()">เข้าใช้งาน</button>
+                <button type="button" class="btn btn-trans" (click)="register()">สมัครใช้งาน</button>
+            </div>
+        </form>
+    </div>
+</div>

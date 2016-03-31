@@ -244,7 +244,8 @@ module.exports = function () {
             var category = {
                 name: req.body.name,
                 sid: sid,
-                description: req.body.description ? req.body.description : ''
+                description: req.body.description ? req.body.description : '',
+                icon: req.body.icon?req.body.icon:''
             };
             models.Category.create(category, { isNewRecord: true })
             .then(function (model) {

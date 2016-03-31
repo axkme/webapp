@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "tugg@tuggdevdb",
-    "password": "Pass1234",
-    "database": "devdb",
-    "host": "tuggdevdb.database.windows.net",
+    "username": "axkme@axkme",
+    "password": "Axkdb2016",
+    "database": "axkme",
+    "host": "axkme.database.windows.net",
     "dialect": "mssql",
     "dialectOptions": {
       "encrypt": true

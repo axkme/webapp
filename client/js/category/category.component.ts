@@ -5,17 +5,7 @@ import {Observable} from 'rxjs/Rx';
 
 @Component({
     selector: 'categories',
-    template: `
-    <img class="load" *ngIf="!categoryLoaded" src="img/balls.gif"/>
-    <div *ngIf="categoryLoaded">
-    <div class="col-xs-2 animated fadeIn" *ngFor="#category of categories">
-        <div class="category">
-            <i class="fa {{category.icon}}"></i>
-            <span>{{category.name}}</span>
-        </div>
-    </div>
-    <div>
-  `,
+    templateUrl: '/views/partials/category.html',
     providers: [CategoryService],
     
 })

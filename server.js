@@ -15,6 +15,7 @@ app.use('/img', express.static(__dirname + '/client/img'));
 app.use('/favicon.ico', express.static(__dirname + '/client/img/favicon.ico'));
 app.use('/fonts', express.static(__dirname + '/client/fonts'));
 app.use('/resources', express.static(__dirname + '/client/resources'));
+app.use('/views', express.static(__dirname + '/views'));
 app.use(bodyParser.json());
 app.use('/api/v1', api);
 
