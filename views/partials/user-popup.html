@@ -6,7 +6,8 @@
         <div class="circle-border">
             <i class="fa fa-user"></i>
         </div>
-        <form>
+        <img *ngIf="isLoad" class="form-loading" src="img/balls.gif" />
+        <form *ngIf="!isLoad && !loginUser.username">
             <p class="message-block" *ngIf="hasError">
                 <span>{{errorMessage}}</span>
             </p>
@@ -24,5 +25,15 @@
                 <button type="button" class="btn btn-trans" (click)="register()">สมัครใช้งาน</button>
             </div>
         </form>
+        <div class="user-profile" *ngIf="!isLoad && loginUser.username">
+            <h2>คุณได้ลงชื่อเข้าใช้โดย</h2>
+            <div class="user-name">
+                <label>นามแฝง: </label>
+                <span>{{loginUser.username}}</span>
+            </div>
+            <div>
+                <button type="button" class="btn btn-trans" (click)="logout()">ออกจากระบบ</button>
+            </div>
+        </div>
     </div>
 </div>

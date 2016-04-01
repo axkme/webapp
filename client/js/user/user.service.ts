@@ -1,14 +1,45 @@
 ﻿import {Injectable} from 'angular2/core';
-import {Http, HTTP_PROVIDERS} from 'angular2/http';
+import {Http, HTTP_PROVIDERS, Headers} from 'angular2/http';
 import 'rxjs/add/operator/map';
+import { Cookie } from 'ng2-cookies/ng2-cookies';
+import {User} from './user.ts';
 
 @Injectable()
 export class UserService {
 
-    constructor(public http: Http) { }
+    loginUser: User
+
+    constructor(public http: Http) {
+
+    }
 
     me() {
-        return this.http.get('/api/v1/categories').map(res => res.json());
+        var headers = new Headers();
+        headers.append('authorization', Cookie.getCookie('authorization'));
+        return this.http.get('/api/v1/me', {
+            headers: headers
+        }).map(res => res.json());
+    }
+
+    login(userInput: any) {
+        let creds = JSON.stringify(userInput);
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('/api/v1/login', creds, {
+            headers: headers
+        }).map(res => res.json());
+    }
+
+    saveUser(_user: User) {
+        this.loginUser = _user;
+    }
+
+    removeUser() {
+        this.loginUser = null;
+    }
+
+    getUser() {
+        return this.loginUser;
     }
    
 }

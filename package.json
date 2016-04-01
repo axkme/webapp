@@ -10,21 +10,22 @@
   "license": "ISC",
   "dependencies": {
     "angular2": "2.0.0-beta.12",
-    "systemjs": "0.19.24",
-    "es6-shim": "^0.35.0",
-    "reflect-metadata": "0.1.2",
-    "rxjs": "5.0.0-beta.2",
-    "zone.js": "0.6.6",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.0",
     "bootstrap": "^3.3.6",
     "ejs": "^2.3.4",
+    "es6-shim": "^0.35.0",
     "express": "^4.13.3",
     "jquery": "^2.2.1",
+    "ng2-cookies": "^0.1.5",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
     "sequelize": "^3.19.3",
     "sequelize-cli": "^2.3.1",
     "shortid": "^2.2.4",
-    "tedious": "^1.13.2"
+    "systemjs": "0.19.24",
+    "tedious": "^1.13.2",
+    "zone.js": "0.6.6"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -32,7 +33,7 @@
     "grunt-execute": "^0.2.2",
     "grunt-open": "^0.2.3",
     "typescript": "^1.8.9",
-    "typings":"^0.7.9"
+    "typings": "^0.7.9"
   },
   "repository": {
     "url": "https://github.com/tuggwoii/azure-nodejs.git",

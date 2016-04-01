@@ -94,7 +94,7 @@ footer p {
 }
 footer .contact {
     float:right;
-    width:270px;
+    width:280px;
     font-size:20px;
 }
 footer .contact .fa {
@@ -273,7 +273,7 @@ footer .contact .fa-mobile {
     top:50%;
     left:50%;
     margin-top: -150px;
-    margin-left: -250px;
+    margin-left: -350px;
     background:rgba(255,255,255,1);
     position:absolute;
     box-shadow: 1px 1px 15px #333;
@@ -331,4 +331,30 @@ input[type=text], input[type=password] {
 .popup .message-block {
     font-size: 16px;
     margin-top:15px; 
+}
+app .form-loading {
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -60px;
+    position: absolute;
+}
+.user-profile .btn.btn-trans{
+    margin-top: 50px;
+}
+.user-profile h2 {
+    font-family: sans-serif;
+    font-size:20px;
+    font-size: 26px;
+    margin-top: 50px;
+}
+.user-profile .user-name {
+    margin-top: 20px;
+}
+.user-profile .user-name label {
+    font-size: 20px;
+    font-family: sans-serif;
+}
+.user-profile .user-name span {
+    font-size: 32px;
 }

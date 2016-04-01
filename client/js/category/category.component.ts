@@ -22,7 +22,6 @@ export class CategoryComponent {
             setTimeout(() => {
                 this.categoryLoaded = true;
             }, 200)
-            console.log('Started');
         });
         source.forEach();
  

@@ -11,13 +11,18 @@ import {EmitterService} from '../shared/emitter.ts';
 })
 export class UserStatusComponent {
 
-    emitter = EmitterService.get("USERPOPUP");
+    popupEmitter = EmitterService.get("USERPOPUP");
+    loginEmitter = EmitterService.get("LOGINUSER");
+    loginUser: User
 
-    openPopup () {
-        this.emitter.emit(null);
+    openPopup() {
+        this.popupEmitter.emit(null);
     }
 
     constructor() {
-        
+        this.loginUser = new User();
+        this.loginEmitter.subscribe(msg => {
+            this.loginUser = msg;
+        });
     }
 }

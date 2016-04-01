@@ -97,7 +97,7 @@ module.exports = function () {
                 responseError(response, err.message);
             });
         }).catch(function (err) {
-            responseError(res, err.message?err.message:err);
+            responseMessage(res, err.message?err.message:err);
         });
     });
 
@@ -133,12 +133,11 @@ module.exports = function () {
     });
 
     app.post('/users', function (req, res) {
-        if (req.body.username && req.body.password && req.body.email) {
+        if (req.body.username && req.body.password) {
             var user = {
                 username: req.body.username,
                 password: bcrypt.hashSync(req.body.password),
-                email: req.body.email,
-                user_role: 14,
+                user_role: 2,
                 sid: shortid.generate()
             };
             models.User.create(user, { isNewRecord: true })
@@ -149,30 +148,10 @@ module.exports = function () {
             });
         }
         else {
-            responseMessage(res, 'Username/password/email is required');
+            responseMessage(res, 'Username/password is required');
         }
     });
 
-    app.post('/users', function (req, res) {
-        if (req.body.username && req.body.password && req.body.email) {
-            var user = {
-                username: req.body.username,
-                password: bcrypt.hashSync(req.body.password),
-                email: req.body.email,
-                user_role: 14,
-                sid: shortid.generate()
-            };
-            models.User.create(user, { isNewRecord: true })
-            .then(function (model) {
-                responseObject(res, model);
-            }).catch(function (err) {
-                responseError(res, err.message);
-            });
-        }
-        else {
-            responseMessage(res, 'Username/password/email is required');
-        }
-    });
 
     //ROLES
     app.get('/roles', function (req, res) {

@@ -1,4 +1,9 @@
 ﻿export class User {
-    username: number;
-    token: string;
+    username: string
+    token: string
+
+    constructor () {
+        this.username = '';
+        this.token = '';
+    }
 }

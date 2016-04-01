@@ -15,10 +15,6 @@ var User = sequelize.define('users', {
         type: Sequelize.STRING,
         field: 'username'
     },
-    email: {
-        type: Sequelize.STRING,
-        field: 'email'
-    },
     password: {
         type: Sequelize.STRING,
         field: 'password'
