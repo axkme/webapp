@@ -1,8 +1,8 @@
 ﻿import {Component, Input} from 'angular2/core';
-import {User} from './user.ts';
-import {UserService} from './user.service.ts';
+import {User} from './user';
+import {UserService} from './user.service';
 import {Observable} from 'rxjs/Rx';
-import {EmitterService} from '../shared/emitter.ts';
+import {EmitterService} from '../shared/emitter';
 import { Cookie } from 'ng2-cookies/ng2-cookies';
 
 
@@ -16,10 +16,12 @@ export class UserPopupComponent {
     visible: boolean
     hasError: boolean
     isLoad: boolean
+    isRegisterSuccess: boolean
     animate: string
     errorMessage: string
     user: any
-    loginUser:User
+    loginUser: User
+    registerUser: User
     userService: UserService
     popupEmitter = EmitterService.get("USERPOPUP");
     loginEmitter = EmitterService.get("LOGINUSER");
@@ -53,14 +55,32 @@ export class UserPopupComponent {
         this.isLoad = false;
     }
 
-    onLoginError(err: any) {
+    onLoginError(err) {
         this.hasError = true;
         this.isLoad = false;
         if (err.status === 400) {
             this.errorMessage = 'นามแฝงหรือรหัสผ่านไม่ถูกต้อง';
         }
         else if (err.status === 500) {
-            this.errorMessage = 'ระบบขัดข้องกรุณาลองอีกครั้งหร์อติดต่อผู้ดูแลเว็บไซต์';
+            this.errorMessage = 'ระบบขัดข้องกรุณาลองอีกครั้งหรือติดต่อผู้ดูแลเว็บไซต์';
+        }
+    }
+    
+    onRegisterSuccess(res) {
+        this.registerUser = res;
+        this.isLoad = false;
+        this.hasError = false;
+        this.isRegisterSuccess = true;
+    } 
+
+    onRegisterError(err) {
+        this.hasError = true;
+        this.isLoad = false;
+        if (err.status === 400) {
+            this.errorMessage = 'มีผู้ใช้นามแฝงนี้แล้ว';
+        }
+        else if (err.status === 500) {
+            this.errorMessage = 'ระบบขัดข้องกรุณาลองอีกครั้งหรือติดต่อผู้ดูแลเว็บไซต์';
         }
     } 
 
@@ -77,7 +97,21 @@ export class UserPopupComponent {
     }
 
     register () {
+        if (this.user.username && this.user.password) {
+            this.isLoad = true;
+            this.userService.register(this.user).subscribe(
+                data => this.onRegisterSuccess(data),
+                err => this.onRegisterError(err),
+                () => console.log('login success'));
+        }
+        else {
+            this.hasError = true;
+            this.errorMessage = 'กรุณากรอกข้อมูลให้ครบก่อนกดสมัครใช้งาน';
+        }
+    }
 
+    toLogin() {
+        this.isRegisterSuccess = false;
     }
 
     logout () {
@@ -94,7 +128,9 @@ export class UserPopupComponent {
         this.visible = false;
         this.hasError = false;
         this.isLoad = false;
+        this.isRegisterSuccess = false;
         this.loginUser = new User();
+        this.registerUser = new User();
 
         if (Cookie.getCookie('authorization')) {
             this.userService.me().subscribe(

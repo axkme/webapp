@@ -1,5 +1,6 @@
 'use strict';
 var express = require('express');
+var fs = require('fs');
 var app = express();
 var Connection = require('tedious').Connection;
 var bodyParser = require('body-parser');
@@ -15,10 +16,12 @@ app.use('/img', express.static(__dirname + '/client/img'));
 app.use('/favicon.ico', express.static(__dirname + '/client/img/favicon.ico'));
 app.use('/fonts', express.static(__dirname + '/client/fonts'));
 app.use('/resources', express.static(__dirname + '/client/resources'));
-app.use('/ng2-cookies/ng2-cookies', express.static(__dirname + '/node_modules/ng2-cookies/ng2-cookies.ts'));
-app.use('/ng2-cookies/src/services', express.static(__dirname + '/node_modules/ng2-cookies/src/services.ts'));
-app.use('/ng2-cookies/src/services/cookie', express.static(__dirname + '/node_modules/ng2-cookies/src/services/cookie.ts'));
 app.use('/views', express.static(__dirname + '/views'));
+app.use('/ng2-cookies', function (req, res) {
+    fs.readFile(__dirname + '/node_modules/ng2-cookies' + req.url + '.ts', function (err, data) {
+        res.status(200).send(data);
+    });
+});
 app.use(bodyParser.json());
 app.use('/api/v1', api);
 

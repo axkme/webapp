@@ -140,9 +140,20 @@ module.exports = function () {
                 user_role: 2,
                 sid: shortid.generate()
             };
-            models.User.create(user, { isNewRecord: true })
-            .then(function (model) {
-                responseObject(res, model);
+
+            models.User.findAll({ where: { username: req.body.username } })
+            .then(function (users) {
+                if (users.length) {
+                    responseMessage(res, 'user exist');
+                }
+                else {
+                    models.User.create(user, { isNewRecord: true })
+                   .then(function (model) {
+                       responseObject(res, model);
+                   }).catch(function (err) {
+                       responseError(res, err.message);
+                   });
+                }
             }).catch(function (err) {
                 responseError(res, err.message);
             });

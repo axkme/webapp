@@ -1,8 +1,8 @@
 ﻿import {Component, Input} from 'angular2/core';
-import {User} from './user.ts';
-import {UserService} from './user.service.ts';
+import {User} from './user';
+import {UserService} from './user.service';
 import {Observable} from 'rxjs/Rx';
-import {EmitterService} from '../shared/emitter.ts';
+import {EmitterService} from '../shared/emitter';
 
 @Component({
     selector: 'user-status',

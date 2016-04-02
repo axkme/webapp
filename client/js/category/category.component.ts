@@ -1,6 +1,6 @@
 ﻿import {Component, Input} from 'angular2/core';
 import {Category} from './category.ts';
-import {CategoryService} from './category.service.ts';
+import {CategoryService} from './category.service';
 import {Observable} from 'rxjs/Rx';
 
 @Component({
