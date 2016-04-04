@@ -1,4 +1,4 @@
-﻿<div class="popup animated {{animate}}" *ngIf="visible">
+﻿<div class="popup register animated {{animate}}" *ngIf="visible">
     <div class="popup-content">
         <div class="close">
             <i class="fa fa-remove" (click)="close()"></i>
@@ -19,8 +19,15 @@
                 <label>รหัสผ่าน</label>
                 <input type="password" class="form-control" [(ngModel)]="user.password" />
             </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" class="form-control" [(ngModel)]="user.agree" />
+                    คุณยอมรับข้อตกลงที่ทางเว็บไซต์ได้กำหนดขึ้นหรือไม่?
+                </label>
+            </div>
             <div class="button-group">
-                <button type="button" class="btn btn-trans" (click)="register()">สมัครใช้งาน</button>
+                <button type="button" class="btn btn-trans" (click)="register()">สมัครใช้งาน</button> |
+                <a href="/agreement">ข้อตกลงในการใช้งานเว็บไซต์</a>
             </div>
         </form>
         <div class="user-profile" *ngIf="isRegisterSuccess && !isLoad">

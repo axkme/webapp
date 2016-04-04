@@ -51,7 +51,7 @@ export class RegisterPopupComponent {
     }
 
     register() {
-        if (this.user.username && this.user.password) {
+        if (this.user.username && this.user.password && this.user.agree) {
             this.isLoad = true;
             this.userService.register(this.user).subscribe(
                 data => this.onRegisterSuccess(data),
@@ -60,7 +60,13 @@ export class RegisterPopupComponent {
         }
         else {
             this.hasError = true;
-            this.errorMessage = 'กรุณากรอกข้อมูลให้ครบก่อนกดสมัครใช้งาน';
+            if (!this.user.username || !this.user.password) {
+                this.errorMessage = 'กรุณากรอกข้อมูลให้ครบก่อนกดสมัครใช้งาน';
+            }
+            else if (!this.user.agree) {
+                this.errorMessage = 'กรุณากดยอมรับข้อตกลงของเว็บไซต์ก่อนสมัครใช้งาน';
+            }
+           
         }
     }
 

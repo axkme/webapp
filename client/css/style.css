@@ -153,12 +153,18 @@ footer .contact .fa-mobile {
 }
 .copyright {
     float:left;
-    top: 20px;
+    top: 10px;
     position:relative;
 }
 .copyright .fa {
     position:relative;
     top:2px;
+}
+.copyright a {
+    display:block;
+    color:#fff;
+    font-size: 18px;
+    margin-top: 6px;
 }
 .copyright-text {
     position:relative;
@@ -371,4 +377,16 @@ app .form-loading {
     width: 320px;
     font-size: 22px;
     font-family: gotham-light;
+}
+input[type="checkbox"] {
+    width: 30px;
+    display: inline-block;
+    border: none;
+    outline: none;
+    height: 30px;
+    position:relative;
+    top:8px;
+}
+.popup.register .popup-content {
+    height:530px;
 }
