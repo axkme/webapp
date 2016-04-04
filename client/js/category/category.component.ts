@@ -2,6 +2,7 @@
 import {Category} from './category.ts';
 import {CategoryService} from './category.service';
 import {Observable} from 'rxjs/Rx';
+import {EmitterService} from '../shared/emitter';
 
 @Component({
     selector: 'categories',
@@ -11,7 +12,9 @@ import {Observable} from 'rxjs/Rx';
 })
 export class CategoryComponent {
     categoryLoaded: boolean;
-    categories: Category [];
+    categories: Category[];
+    loginEmitter = EmitterService.get("USERPOPUP");
+    registerEmitter = EmitterService.get("REGISTERPOPUP");
 
     logError(err: any) {
         console.log(err);
@@ -25,6 +28,14 @@ export class CategoryComponent {
         });
         source.forEach();
  
+    }
+
+    openRegister() {
+        this.registerEmitter.emit(null);
+    }
+
+    openLogin() {
+        this.loginEmitter.emit(null);
     }
 
     constructor(categoryService: CategoryService) {

@@ -25,6 +25,7 @@ export class UserPopupComponent {
     userService: UserService
     popupEmitter = EmitterService.get("USERPOPUP");
     loginEmitter = EmitterService.get("LOGINUSER");
+    registerEmitter = EmitterService.get("REGISTERPOPUP");
 
     close () {
         this.animate = 'fadeOut';
@@ -65,24 +66,6 @@ export class UserPopupComponent {
             this.errorMessage = 'ระบบขัดข้องกรุณาลองอีกครั้งหรือติดต่อผู้ดูแลเว็บไซต์';
         }
     }
-    
-    onRegisterSuccess(res) {
-        this.registerUser = res;
-        this.isLoad = false;
-        this.hasError = false;
-        this.isRegisterSuccess = true;
-    } 
-
-    onRegisterError(err) {
-        this.hasError = true;
-        this.isLoad = false;
-        if (err.status === 400) {
-            this.errorMessage = 'มีผู้ใช้นามแฝงนี้แล้ว';
-        }
-        else if (err.status === 500) {
-            this.errorMessage = 'ระบบขัดข้องกรุณาลองอีกครั้งหรือติดต่อผู้ดูแลเว็บไซต์';
-        }
-    } 
 
     onLoadUser(res) {
         this.loginUser = res;
@@ -96,18 +79,9 @@ export class UserPopupComponent {
         this.userService.removeUser();
     }
 
-    register () {
-        if (this.user.username && this.user.password) {
-            this.isLoad = true;
-            this.userService.register(this.user).subscribe(
-                data => this.onRegisterSuccess(data),
-                err => this.onRegisterError(err),
-                () => console.log('login success'));
-        }
-        else {
-            this.hasError = true;
-            this.errorMessage = 'กรุณากรอกข้อมูลให้ครบก่อนกดสมัครใช้งาน';
-        }
+    register() {
+        this.visible = false;
+        this.registerEmitter.emit(null);
     }
 
     toLogin() {

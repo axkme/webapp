@@ -1,0 +1,50 @@
+﻿.sky, .forum ul li.sky {
+    background-color:rgb(124,165,195);
+}
+.dark-green, .forum ul li.dark-green {
+    background-color:rgb(37,104,50);
+}
+.orange, .forum ul li {
+    background-color:rgb(231,124,56);
+}
+.red, .forum ul li.red {
+    background-color:rgb(191,23,40);
+}
+.silver, .forum ul li.silver {
+    background-color:rgb(192,192,192);
+}
+.gold, .forum ul li.gold {
+     background-color:rgb(255,215,0)
+}
+.light-purple, .forum ul li.light-purple {
+    background-color:rgb(117,152,158);
+}
+.light-black, .forum ul li.light-black {
+    background-color:rgb(48,42,30);
+}
+.dark-blue, .forum ul li.dark-blue {
+    background-color:rgb(31,60,126);
+}
+.yellow, .forum ul li.yellow {
+    background-color:rgb(231,211,52);
+}
+.blood-red, .forum ul li.blood-red {
+    background-color:rgb(199,49,58);
+}
+.pink, .forum ul li.pink {
+    background-color:rgb(183,26,93);
+}
+.light-green, .forum ul li.light-green {
+    background-color:rgb(88,142,30);
+}
+.dark-purple, .forum ul li.dark-purple {
+    background-color:rgb(65,26,79);
+}
+.cream, .forum ul li.cream {
+    background-color:rgb(226,184,136);
+}
+.sys {
+    background: #eee;
+    color: #666;
+    border: 2px solid #666;
+}

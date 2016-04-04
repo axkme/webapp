@@ -43,8 +43,9 @@ app .page-loading {
 }
 h1 {
     font-size: 80px;
-    font-family: gotham-light;
+    font-family: gotham-reg;
     text-shadow: 1px 1px 1px #ccc;
+    color: #666;
 }
 .category {
     display: inline-block;
@@ -130,9 +131,11 @@ footer .contact .fa-mobile {
     font-family: gotham-med;
     color: #405070;
     display:inline-block;
+    position: relative;
+    top: 3px;
 }
 .logo img {
-    width:50px;
+    width:150px;
 }
 .logo .logo-text {
     color: #aaa;
@@ -171,7 +174,6 @@ footer .contact .fa-mobile {
     background: #666;
     text-align:center;
     font-size:50px;
-    padding-top:60px;
     text-shadow: 1px 1px 1px #222;
     color:#fff;
     float:left;
@@ -182,8 +184,11 @@ footer .contact .fa-mobile {
 }
 .ads-1 {
     width: 100%;
-    height: 250px;
-    padding-top: 75px;
+    height: 350px;
+}
+.ads-1 img {
+    margin-top:10px;
+    height: 320px;
 }
 .forum h2 {
     background:#666;
@@ -207,7 +212,6 @@ footer .contact .fa-mobile {
 .forum ul li {
     float:left;
     width:100%;
-    border:1px solid #bbb;
     margin-top:-1px;
     background:#999;
     color:#fff;
@@ -250,6 +254,7 @@ footer .contact .fa-mobile {
 }
 .header-content {
     margin-top:70px;
+    position:relative;
 }
 .load {
     display: block;
@@ -357,4 +362,13 @@ app .form-loading {
 }
 .user-profile .user-name span {
     font-size: 32px;
+}
+.header-content .btn {
+    position: absolute;
+    right: 15px;
+    top: 40px;
+    height: 100px;
+    width: 320px;
+    font-size: 22px;
+    font-family: gotham-light;
 }
