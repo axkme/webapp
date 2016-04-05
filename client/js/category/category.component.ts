@@ -15,12 +15,15 @@ export class CategoryComponent {
     categories: Category[];
     loginEmitter = EmitterService.get("USERPOPUP");
     registerEmitter = EmitterService.get("REGISTERPOPUP");
+    categoryEmitter = EmitterService.get("CATEGORIES");
 
     logError(err: any) {
         console.log(err);
     }
 
-    logSuccess() {
+    logSuccess(data) {
+        this.categories = data;
+        this.categoryEmitter.emit(this.categories);
         var source = Observable.create(observer => {
             setTimeout(() => {
                 this.categoryLoaded = true;
@@ -40,8 +43,8 @@ export class CategoryComponent {
 
     constructor(categoryService: CategoryService) {
         categoryService.getAll().subscribe(
-            data => this.categories = data,
+            data => this.logSuccess(data),
             err => this.logError(err),
-            () => this.logSuccess());
+            () => console.log('Get categories success'));
     }
 }

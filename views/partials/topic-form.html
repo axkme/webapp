@@ -1,0 +1,33 @@
+﻿<div class="col-md-12 header-content">
+    <img class="header-image" src="img/header.png" width="400" />
+    <p class="slogan">ทุกคำถามมีคำตอบ มาหาคำตอบกับเราที่นี่</p>
+    <button type="button" class="btn btn-blue" (click)="toggleForm()">AXK NOW!</button>
+</div>
+<div class="col-md-12">
+    <div class="topic-form animated slideInLeft" *ngIf="visible">
+        <h2>กรุณากรอกแบบฟอร์มเพื่อตั้งคำถาม</h2>
+        <form class="form">
+            <div class="form-group">
+                <label class="label label-default">หัวข้อคำถาม</label>
+                <input type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="label label-default">หมวดหมู่ของคำถาม</label>
+                <div class="radio-list">
+                    <div class="category-radio form-group" *ngFor="#category of categories">
+                        <input type="radio" class="form-control" (click)="categorySelect(category.id)" name="category" value="{{category.id}}"/>
+                        <i class="fa {{category.icon}}"></i> 
+                        {{category.name}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="label label-default">ข้อความ</label>
+                <textarea class="form-control"></textarea>
+            </div>
+            <div class="button-container">
+                <button type="button" class="btn btn-black"><i class="fa fa-external-link"></i> ส่งคำถาม</button>
+            </div>
+        </form>
+    </div>
+</div>

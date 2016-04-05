@@ -369,14 +369,19 @@ app .form-loading {
 .user-profile .user-name span {
     font-size: 32px;
 }
-.header-content .btn {
+.header-content .btn.btn-blue {
     position: absolute;
     right: 15px;
-    top: 40px;
+    top: 30px;
     height: 100px;
     width: 320px;
     font-size: 22px;
     font-family: gotham-light;
+    background-color:rgb(65,140,255);
+    color:#fff;
+}
+.header-content .btn:active {
+    background-color:rgb(55,130,250);
 }
 input[type="checkbox"] {
     width: 30px;
@@ -389,4 +394,84 @@ input[type="checkbox"] {
 }
 .popup.register .popup-content {
     height:530px;
+}
+.agreement-list p, .agreement-list li {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 18px;
+    line-height: 2;
+}
+.agreement-list .btn {
+    margin-top:50px;
+    background-color: rgb(65,140,255);
+    color:#fff;
+    border:none;
+}
+img.header-image {
+    margin-bottom:20px;
+}
+.topic-form {
+    background: #666;
+    padding:20px 50px 100px 50px;
+    border-radius: 2px;
+    color:#fff;
+}
+.topic-form .form {
+    margin-top:40px;
+}
+.topic-form .form .form-control {
+    margin-top:10px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 18px;
+}
+.topic-form .form .label {
+    min-width:200px;
+    display: inline-block;
+    font-weight:normal;
+    font-size:20px;
+}
+.topic-form .form input[type="text"] {
+   padding:0 10px;
+   border-radius:1px;
+   border:none;
+   outline:none;
+}
+.topic-form .form textarea {
+   padding: 10px;
+   border-radius:1px;
+   border:none;
+   outline:none;
+   min-height:200px;
+}
+.btn.btn-black {
+        background-color: #777;
+}
+.btn.btn-black:hover, .btn.btn-black:focus {
+    color:#fff;
+}
+.button-container {
+    margin-top:50px;
+}
+input[type="radio"] {
+    width:25px;
+    height:25px;
+    display:inline-block;
+    border:none;
+    box-shadow:none;
+    outline:none;
+    position: relative;
+    top: 6px;
+    cursor:pointer;
+}
+input[type="radio"]:focus {
+    border:none;
+    box-shadow:none;
+    outline:none;
+}
+.category-radio {
+    width:33%;
+    float:left;
+}
+.radio-list {
+    display:inline-block;
+    width:100%;
 }
