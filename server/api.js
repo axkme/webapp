@@ -222,18 +222,9 @@ module.exports = function () {
 
     app.post('/categories', function (req, res) {
         if (req.body.name && req.body.sid) {
-            var sid = req.body.sid;
-            sid = replaceAll(sid, '(', '');
-            sid = replaceAll(sid, ')', '');
-            sid = replaceAll(sid, '.', '');
-            sid = replaceAll(sid, ' & ', '-');
-            sid = replaceAll(sid, ' ', '-');
-            sid = replaceAll(sid, '/', '-');
-            sid = replaceAll(sid, ',', '-');
-            sid = sid.toLowerCase();
             var category = {
                 name: req.body.name,
-                sid: sid,
+                sid: req.body.sid,
                 description: req.body.description ? req.body.description : '',
                 icon: req.body.icon?req.body.icon:''
             };
@@ -264,20 +255,56 @@ module.exports = function () {
     });
 
     //TOPICS
+    app.get('/topics', function (req, res) {
+
+        // limit the results of the query
+        //Project.findAll({ limit: 10 })
+
+        // step over the first 10 elements
+        //Project.findAll({ offset: 10 })
+
+        // step over the first 10 elements, and take 2
+        //Project.findAll({ offset: 10, limit: 2 })
+
+        models.Topic.findAll({
+            include: [
+                { model: models.User },
+                { model: models.Category }
+            ],
+            limit: 20
+        }).then(function (topics) {
+            responseList(res, topics);
+        }).catch(function (err) {
+            responseError(res, err.message);
+        });
+    });
+
     app.post('/topics', function (req, res) {
-        console.log(req.body);
-        if (req.body.title && req.body.message && req.body.post_by && req.body.topic_category) {
-            var topic = req.body;
-            topic.sid = shortid.generate();
-            models.Topic.create(topic, { isNewRecord: true })
-            .then(function (model) {
-                responseObject(res, model);
-            }).catch(function (err) {
-                responseError(res, err.message + ', maybe check post_by and topic_category');
-            });
+        if (authorize.isAuthorize(req, ['administrator', 'user'])) {
+
+            console.log(req.body);
+
+            if (req.body.title && req.body.message && req.body.category) {
+                var topic = {
+                    title: req.body.title,
+                    message: req.body.message,
+                    topic_category: req.body.category,
+                    post_by: req.user.id,
+                };
+                topic.sid = shortid.generate();
+                models.Topic.create(topic, { isNewRecord: true })
+                .then(function (model) {
+                    responseObject(res, model);
+                }).catch(function (err) {
+                    responseError(res, err.message + ', maybe check topic_category');
+                });
+            }
+            else {
+                responseMessage(res, 'title/message/topic_category is required');
+            }
         }
         else {
-            responseMessage(res, 'title/message/post_by/topic_category is required');
+            responsePermission(res);
         }
     });
 
@@ -319,7 +346,7 @@ module.exports = function () {
         });
     });
 
-    //TOPICS
+    //COMMENTS
     app.post('/comments', function (req, res) {
         if (req.body.topic_id && req.body.message && req.body.post_by) {
             var comment = req.body;

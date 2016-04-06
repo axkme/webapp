@@ -283,7 +283,7 @@ footer .contact .fa-mobile {
     height: 470px;
     top:50%;
     left:50%;
-    margin-top: -150px;
+    margin-top: -280px;
     margin-left: -350px;
     background:rgba(255,255,255,1);
     position:absolute;
@@ -414,6 +414,10 @@ img.header-image {
     padding:20px 50px 100px 50px;
     border-radius: 2px;
     color:#fff;
+    animation-duration:0.7s;
+    -webkit-animation-duration:0.7s;
+    -moz-animation-duration:0.7s;
+    position:relative;
 }
 .topic-form .form {
     margin-top:40px;
@@ -443,10 +447,10 @@ img.header-image {
    min-height:200px;
 }
 .btn.btn-black {
-        background-color: #777;
+   background-color: #777;
 }
 .btn.btn-black:hover, .btn.btn-black:focus {
-    color:#fff;
+   color:#fff;
 }
 .button-container {
     margin-top:50px;
@@ -474,4 +478,33 @@ input[type="radio"]:focus {
 .radio-list {
     display:inline-block;
     width:100%;
+}
+.message-block {
+    border: 1px solid #bb0000;
+    font-family: sans-serif;
+    color: #bb0000;
+    padding: 5px;
+    border-radius: 2px;
+}
+.message-block.white {
+    border: 1px solid #fff;
+    font-family: sans-serif;
+    color: #fff;
+    padding: 5px;
+    border-radius: 2px;
+    font-size:16px;
+    margin-bottom:30px;
+}
+.indicator {
+    position: absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background: rgba(250,250,250,0.9);
+}
+.indicator img {
+    position: absolute;
+    top:50%;
+    left:50%;
 }

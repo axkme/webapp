@@ -27,7 +27,7 @@ export class CategoryComponent {
         var source = Observable.create(observer => {
             setTimeout(() => {
                 this.categoryLoaded = true;
-            }, 200)
+            }, 200);
         });
         source.forEach();
  

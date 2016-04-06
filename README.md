@@ -7,4 +7,5 @@ type "grunt run"<br/>
 type "grunt test"<br/>
 ###Migrations
 sequelize db:migrate
+sequelize db:migrate:undo
 sequelize migration:create

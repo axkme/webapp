@@ -7,8 +7,6 @@ import {User} from './user';
 @Injectable()
 export class UserService {
 
-    loginUser: User
-
     constructor(public http: Http) {
 
     }
@@ -37,18 +35,6 @@ export class UserService {
         return this.http.post('/api/v1/users', creds, {
             headers: headers
         }).map(res => res.json());
-    }
-
-    saveUser(_user: User) {
-        this.loginUser = _user;
-    }
-
-    removeUser() {
-        this.loginUser = null;
-    }
-
-    getUser() {
-        return this.loginUser;
     }
    
 }

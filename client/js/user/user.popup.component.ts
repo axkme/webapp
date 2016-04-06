@@ -51,7 +51,6 @@ export class UserPopupComponent {
     onLoginSuccess(res) {
         this.loginUser = res;
         this.loginEmitter.emit(this.loginUser);
-        this.userService.saveUser(this.loginUser);
         Cookie.setCookie('authorization', res.token);
         this.isLoad = false;
     }
@@ -70,13 +69,11 @@ export class UserPopupComponent {
     onLoadUser(res) {
         this.loginUser = res;
         this.loginEmitter.emit(this.loginUser);
-        this.userService.saveUser(this.loginUser);
     }
 
     onLoadUserError(err) {
         this.loginUser = new User();
         Cookie.deleteCookie('authorization');
-        this.userService.removeUser();
     }
 
     register() {
@@ -92,7 +89,6 @@ export class UserPopupComponent {
         this.loginUser = new User();
         this.loginEmitter.emit(this.loginUser);
         Cookie.deleteCookie('authorization');
-        this.userService.removeUser();
         this.visible = false;
     }
 
