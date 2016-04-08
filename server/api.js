@@ -310,8 +310,8 @@ module.exports = function () {
     });
 
     app.get('/topics/:id', function (req, res) {
-        console.log(req.params);
-        models.Topic.findById(req.params.id, {
+        models.Topic.findOne({
+            where: { sid: req.params.id },
             include: [
                 { model: models.User },
                 { model: models.Category }

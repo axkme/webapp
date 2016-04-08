@@ -8,13 +8,13 @@
     background-color:rgb(231,124,56);
 }
 .red, .forum ul li.red {
-    background-color:rgb(191,23,40);
+    background-color:rgb(210,30,30);
 }
 .silver, .forum ul li.silver {
     background-color:rgb(192,192,192);
 }
 .gold, .forum ul li.gold {
-     background-color:rgb(255,215,0)
+     background-color:rgb(240,200,0);
 }
 .light-purple, .forum ul li.light-purple {
     background-color:rgb(117,152,158);
@@ -23,16 +23,16 @@
     background-color:rgb(48,42,30);
 }
 .dark-blue, .forum ul li.dark-blue {
-    background-color:rgb(31,60,126);
+   background-color: rgb(90,50,180);
 }
 .yellow, .forum ul li.yellow {
-    background-color:rgb(231,211,52);
+    background-color:rgb(200,200,0);
 }
 .blood-red, .forum ul li.blood-red {
     background-color:rgb(199,49,58);
 }
 .pink, .forum ul li.pink {
-    background-color:rgb(183,26,93);
+    background-color:rgb(185,60,100);
 }
 .light-green, .forum ul li.light-green {
     background-color:rgb(88,142,30);
@@ -41,7 +41,7 @@
     background-color:rgb(65,26,79);
 }
 .cream, .forum ul li.cream {
-    background-color:rgb(226,184,136);
+    background-color:rgb(210,160,120);
 }
 .sys {
     background: #eee;

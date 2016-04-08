@@ -1,0 +1,17 @@
+﻿<img class="header-image" src="/img/header.png" width="400" />
+<img class="load" src="/img/balls.gif" *ngIf="!topicLoaded" />
+<div class="category-logo {{topic.category.color}} animated fadeIn" *ngIf="topicLoaded">
+    <i class="fa {{topic.category.icon}}"></i>
+</div>
+<div class="animated fadeIn" *ngIf="topicLoaded">
+    <p class="slogan">{{topic.title}}</p>
+    <div class="message  {{topic.category.color}}">
+        {{topic.message}}
+        <div class="by">
+            <i class="fa fa-user"></i>โดย: {{topic.user.username}}
+        </div>
+        <div class="time">
+            <i class="fa fa-clock-o"></i>เวลา: {{displayDate(topic.createdAt)}}
+        </div>
+    </div>
+</div>

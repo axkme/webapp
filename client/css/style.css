@@ -30,7 +30,7 @@ body {
     color:#333;
     min-width:992px;
 }
-app .page-loading {
+app .page-loading, app-topic .page-loading {
     top:50%;
     left:50%;
     margin-top: -100px;
@@ -218,7 +218,7 @@ footer .contact .fa-mobile {
 .forum ul li {
     float:left;
     width:100%;
-    margin-top:-1px;
+    margin-top:0px;
     background:#999;
     color:#fff;
 }
@@ -508,4 +508,35 @@ input[type="radio"]:focus {
     position: absolute;
     top:50%;
     left:50%;
+}
+.category-logo {
+    float:right;
+    padding:30px 40px;
+    position:relative;
+    top:-115px;
+    color:#fff;
+    border-radius:2px;
+    cursor:pointer;
+    box-shadow: 1px 1px 10px #999;
+}
+.message {
+     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:18px;
+    padding: 30px 25px;
+    border-radius: 2px;
+    color:#eee;
+    box-shadow: 1px 1px 10px #999;
+}
+.message .by  {
+    margin-top:30px;
+    font-family: 'thaisanalite';
+    font-size:22px;
+}
+.message .time {
+    font-family: 'thaisanalite';
+    font-size:22px;
+}
+.message .fa {
+    font-size:18px;
+    margin-right:10px;
 }

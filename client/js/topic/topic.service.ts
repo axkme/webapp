@@ -12,6 +12,10 @@ export class TopicService {
         return this.http.get('/api/v1/topics').map(res => res.json());
     }
 
+    getById(sid) {
+        return this.http.get('/api/v1/topics/' + sid).map(res => res.json());
+    }
+
     create (topic: any) {
         let data = JSON.stringify(topic);
         var headers = new Headers();

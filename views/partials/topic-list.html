@@ -1,0 +1,26 @@
+﻿<div class="col-md-12 forum">
+    <h2><i class="fa fa-bars"></i> <span>คำถามล่าสุด</span></h2>
+    <img class="load" src="img/balls.gif" *ngIf="!topicLoaded"/>
+    <ul *ngIf="topicLoaded">
+        <li class="{{topic.category.color}}"  *ngFor="#topic of topics">
+            <a href="/topics/{{topic.sid}}">
+                <i class="fa topic.category.icon"></i>
+                <div class="topic">
+                    <span class="topic-name">{{topic.title}}</span>
+                    <span class="ans-count">จำนวนคนตอบ: 0</span>
+                </div>
+                <div class="info">
+                    <span class="block">
+                        <label>โดย: </label>
+                        <span>{{topic.user.username}}</span>
+                    </span>
+                    <span class="block">
+                        <label>เวลา: </label>
+                        <span>{{displayDate(topic.createdAt)}}</span>
+                    </span>
+                </div>
+            </a>
+        </li>
+   
+    </ul>
+</div>
