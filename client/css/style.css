@@ -393,7 +393,7 @@ input[type="checkbox"] {
     top:8px;
 }
 .popup.register .popup-content {
-    height:530px;
+    height:650px;
 }
 .agreement-list p, .agreement-list li {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -418,6 +418,7 @@ img.header-image {
     -webkit-animation-duration:0.7s;
     -moz-animation-duration:0.7s;
     position:relative;
+    -webkit-transform-style: preserve-3d;
 }
 .topic-form .form {
     margin-top:40px;

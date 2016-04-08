@@ -137,6 +137,7 @@ module.exports = function () {
             var user = {
                 username: req.body.username,
                 password: bcrypt.hashSync(req.body.password),
+                telephone: req.body.telephone?req.body.telephone:'',
                 user_role: 2,
                 sid: shortid.generate()
             };

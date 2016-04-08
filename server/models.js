@@ -19,6 +19,10 @@ var User = sequelize.define('users', {
         type: Sequelize.STRING,
         field: 'password'
     },
+    telephone: {
+        type: Sequelize.STRING,
+        field: 'telephone'
+    },
     user_role: {
         type: Sequelize.INTEGER,
         field: 'roleId'
