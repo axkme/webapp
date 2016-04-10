@@ -3,6 +3,7 @@ var shortid = require('shortid');
 var bcrypt = require('bcrypt-nodejs');
 var User = require('./users');
 var authorize = require('./auth');
+var sequelize = require('./connection');
 shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$@');
 
 module.exports = function () {
@@ -268,6 +269,7 @@ module.exports = function () {
         //Project.findAll({ offset: 10, limit: 2 })
 
         models.Topic.findAll({
+            order: 'createdAt DESC',
             include: [
                 { model: models.User },
                 { model: models.Category }
@@ -282,9 +284,6 @@ module.exports = function () {
 
     app.post('/topics', function (req, res) {
         if (authorize.isAuthorize(req, ['administrator', 'user'])) {
-
-            console.log(req.body);
-
             if (req.body.title && req.body.message && req.body.category) {
                 var topic = {
                     title: req.body.title,

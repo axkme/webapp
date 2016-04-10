@@ -508,14 +508,15 @@ input[type="radio"]:focus {
     left:50%;
 }
 .category-logo {
-    float:right;
-    padding:30px 40px;
-    position:relative;
-    color:#fff;
-    border-radius:2px;
-    cursor:pointer;
-    box-shadow: 1px 1px 10px #999;
-    background:#999;
+    float: right;
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    background: #999;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    padding-top: 32px;
 }
 .category-logo.agm {
     top:10px;
@@ -524,12 +525,12 @@ input[type="radio"]:focus {
     box-shadow: none;
 }
 .message {
-     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size:18px;
     padding: 30px 25px;
     border-radius: 2px;
-    color:#eee;
-    box-shadow: 1px 1px 10px #999;
+    color:#888;
+    box-shadow: 1px 1px 5px #999;
 }
 .message .by  {
     margin-top:30px;

@@ -8,7 +8,7 @@
 <img class="load" src="/img/balls.gif" *ngIf="!topicLoaded" />
 <div class="animated fadeIn" *ngIf="topicLoaded">
     <p class="slogan">{{topic.title}}</p>
-    <div class="message  {{topic.category.color}}">
+    <div class="message {{topic.category.color}}">
         {{topic.message}}
         <div class="by">
             <i class="fa fa-user"></i>โดย: {{topic.user.username}}
