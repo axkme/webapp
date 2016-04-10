@@ -1,8 +1,11 @@
-﻿<img class="header-image" src="/img/header.png" width="400" />
-<img class="load" src="/img/balls.gif" *ngIf="!topicLoaded" />
-<div class="category-logo {{topic.category.color}} animated fadeIn" *ngIf="topicLoaded">
-    <i class="fa {{topic.category.icon}}"></i>
+﻿<div class="topic-header">
+    <img class="header-image" src="/img/header.png" width="400" />
+    <div class="category-logo {{topic.category.color}} animated fadeIn" *ngIf="topicLoaded">
+        <i class="fa {{topic.category.icon}}"></i>
+    </div>
 </div>
+
+<img class="load" src="/img/balls.gif" *ngIf="!topicLoaded" />
 <div class="animated fadeIn" *ngIf="topicLoaded">
     <p class="slogan">{{topic.title}}</p>
     <div class="message  {{topic.category.color}}">

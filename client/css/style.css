@@ -424,6 +424,9 @@ img.header-image {
     -webkit-animation-duration:0.7s;
     -moz-animation-duration:0.7s;
     position:relative;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
     -webkit-transform-style: preserve-3d;
     -webkit-transform: translate3d(0,0,0);
 }
@@ -520,7 +523,6 @@ input[type="radio"]:focus {
     float:right;
     padding:30px 40px;
     position:relative;
-    top:-115px;
     color:#fff;
     border-radius:2px;
     cursor:pointer;
@@ -553,4 +555,11 @@ input[type="radio"]:focus {
 .message .fa {
     font-size:18px;
     margin-right:10px;
+}
+.topic-header {
+    display:inline-block;
+    width:100%;
+}
+.topic-header img {
+    float:left;
 }
