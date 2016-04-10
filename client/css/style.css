@@ -424,12 +424,16 @@ img.header-image {
     -webkit-animation-duration:0.7s;
     -moz-animation-duration:0.7s;
     position:relative;
-
+    
     -webkit-transform-style: preserve-3d;
     -webkit-transform: translate3d(0,0,0);
     -webkit-transform:rotateY(0deg);
 }
 .topic-form .form {
+     -webkit-transform: translate3d(0,0,0);
+     -webkit-backface-visibility: hidden !important;
+    -moz-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
     margin-top:40px;
 }
 .topic-form .form .form-control {
