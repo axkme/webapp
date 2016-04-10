@@ -365,7 +365,7 @@ app .form-loading {
 .header-content .btn.btn-blue {
     position: absolute;
     right: 15px;
-    top: 30px;
+    top: 0px;
     height: 100px;
     width: 320px;
     font-size: 22px;

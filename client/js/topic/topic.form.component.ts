@@ -18,6 +18,7 @@ export class TopicFormComponent {
     amimation: string;
     model: Topic;
     validateModel: any;
+    isMini2: boolean;
     categories: Category[];
     topicService: TopicService;
     categoryEmitter = EmitterService.get("CATEGORIES");
@@ -30,11 +31,14 @@ export class TopicFormComponent {
 
     toggleForm() {
 
-        alert(screen.availWidth + ', ' + screen.availHeight + ', ' + navigator.userAgent);
-
         if (this.loginUser && this.loginUser.username) {
             if (this.visible) {
-                this.amimation = 'flipOutY';
+                if (this.isMini2) {
+                    this.amimation = 'fadeOutDown';
+                }
+                else {
+                    this.amimation = 'flipOutY';
+                }
                 setTimeout(() => {
                     this.visible = false;
                 }, 700);
@@ -43,7 +47,13 @@ export class TopicFormComponent {
                 this.model = new Topic();
                 this.validateModel.isValid = true;
                 this.visible = true;
-                this.amimation = 'flipInY';
+                
+                if (this.isMini2) {
+                    this.amimation = 'fadeInUp';
+                }
+                else {
+                    this.amimation = 'flipInY';
+                }
             }
         }
         else {
@@ -114,5 +124,9 @@ export class TopicFormComponent {
         this.loginEmitter.subscribe(msg => {
             this.loginUser = msg;
         });
+        this.isMini2 = false;
+        if (screen.availWidth === 768 && screen.availHeight === 1004 && navigator.userAgent.indexOf('Version/8.0') > -1) {
+            this.isMini2 = true;
+        }
     }
 }
