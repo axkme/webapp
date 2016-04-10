@@ -27,8 +27,9 @@ body {
     margin:0;
     font-size:24px;
     font-family: 'thaisanalite';
-    color:#333;
+    color:#666;
     min-width:992px;
+    background-color: #f9f9f9;
 }
 app .page-loading, app-topic .page-loading {
     top:50%;
@@ -50,21 +51,23 @@ h1 {
 .category {
     display: inline-block;
     border-radius: 2%;
-    background:#999;
     height: 150px;
-    box-shadow: 1px 1px 10px #ccc;
     cursor:pointer;
     padding: 30px 10px;
     text-align: center;
     line-height: 1;
     font-size: 22px;
-    color:#fff;
+    color:#666;
     width:100%;
     margin-top:30px;
+    background: #f2f2f2;
+}
+.category .name {
+    color:#666;
 }
 .category .fa {
     display:block;
-    font-size: 30px;
+    font-size: 40px;
 }
 .category span {
     margin-top:10px;
@@ -76,6 +79,7 @@ header {
     width:100%;
     color:#fff;
     padding: 8px 20px;
+    border-bottom: 1px solid #e8e8e8;
 }
 header p {
    font-size: 35px;
@@ -84,11 +88,12 @@ header p {
    padding: 0 20px;
 }
 footer {
-    height: 120px;
+    height: 150px;
     width:100%;
     color:#fff;
-    padding: 10px 20px;
-    background:#444;
+    padding: 25px 20px;
+    background:#666;
+    border-top: 1px solid #e8e8e8;
 }
 footer p {
     margin:0;
@@ -115,18 +120,6 @@ footer .contact .fa-mobile {
 .category-list .col-md-3 {
     text-align:center;
 }
-.category.blue {
-    background:rgb(49,138,160);
-}
-.category.green {
-    background:rgb(116,170,74);
-}
-.category.yellow {
-    background:rgb(100,230,60);
-}
-.category.red {
-    background:rgb(190,32,45);
-}
 .logo {
     font-family: gotham-med;
     color: #405070;
@@ -147,13 +140,12 @@ footer .contact .fa-mobile {
     float:right;
     position: relative;
     top: 6px;
-    text-shadow: 1px 1px 1px #ccc;
-    color: #aaa;
     cursor:pointer;
+    color:rgb(91,192,222);
 }
 .copyright {
     float:left;
-    top: 10px;
+    top: 5px;
     position:relative;
 }
 .copyright .fa {
@@ -164,12 +156,11 @@ footer .contact .fa-mobile {
     display:block;
     color:#fff;
     font-size: 18px;
-    margin-top: 6px;
+    margin-top: 15px;
 }
 .copyright-text {
     position:relative;
-    font-size: 18px;
-    font-style:italic;
+    font-size: 20px;
     top:10px;
 }
 .contact-heaader {
@@ -197,11 +188,11 @@ footer .contact .fa-mobile {
     height: 320px;
 }
 .forum h2 {
-    background:#666;
-    color:#fff;
-    padding: 10px 40px;
-    margin-top:50px;
-    border-radius:2px;
+    color: #666;
+    padding: 10px 30px;
+    margin-top: 50px;
+    border-radius: 2px;
+    border: 2px solid;
 }
 
 .forum h2 span {
@@ -213,17 +204,19 @@ footer .contact .fa-mobile {
     list-style:none;
     margin:0;
     padding:0;
-    margin-top:50px;
+    margin-top:20px;
 }
 .forum ul li {
     float:left;
     width:100%;
     margin-top:0px;
-    background:#999;
-    color:#fff;
+    background:#f2f2f2;
+    border: 1px solid #666;
+    margin-top: 10px;
+    border-radius:2px;
 }
 .forum ul li a {
-    color:#fff;
+    color:#666;
     width:100%;
     padding:20px;
     display: inline-block;
@@ -234,7 +227,7 @@ footer .contact .fa-mobile {
 .forum ul li a .fa {
     margin-right:10px;
     float:left;
-    margin-top:25px;
+    margin-top:13px;
 }
 .forum ul li .topic-name {
     display:block;
@@ -336,7 +329,7 @@ input[type=text], input[type=password] {
     border:1px solid #bb0000;
     font-family: sans-serif;
     color: #bb0000;
-    padding:5px;
+    padding:5px 15px;
     border-radius:2px;
 }
 .popup .message-block {
@@ -350,7 +343,7 @@ app .form-loading {
     margin-left: -60px;
     position: absolute;
 }
-.user-profile .btn.btn-trans{
+.user-profile .btn.btn-trans {
     margin-top: 50px;
 }
 .user-profile h2 {
@@ -377,11 +370,11 @@ app .form-loading {
     width: 320px;
     font-size: 22px;
     font-family: gotham-light;
-    background-color:rgb(65,140,255);
+    background-color:rgb(91,192,222);
     color:#fff;
 }
 .header-content .btn:active {
-    background-color:rgb(55,130,250);
+    background-color:rgb(91,192,235);
 }
 input[type="checkbox"] {
     width: 30px;
@@ -403,12 +396,12 @@ input[type="checkbox"] {
 }
 .agreement-list p, .agreement-list li {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 2;
 }
 .agreement-btn.btn {
     margin-top:50px;
-    background-color: rgb(65,140,255);
+    background-color: rgb(91,192,222);
     color:#fff;
     border:none;
 }
@@ -493,18 +486,10 @@ input[type="radio"]:focus {
     display:inline-block;
     width:100%;
 }
-.message-block {
-    border: 1px solid #bb0000;
-    font-family: sans-serif;
-    color: #bb0000;
-    padding: 5px;
-    border-radius: 2px;
-}
 .message-block.white {
     border: 1px solid #fff;
     font-family: sans-serif;
     color: #fff;
-    padding: 5px;
     border-radius: 2px;
     font-size:16px;
     margin-bottom:30px;
@@ -565,4 +550,9 @@ input[type="radio"]:focus {
 }
 .topic-header img {
     float:left;
+}
+.btn .fa {
+    position:relative;
+    top:2px;
+    margin-right:5px;
 }

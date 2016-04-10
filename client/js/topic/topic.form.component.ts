@@ -29,6 +29,9 @@ export class TopicFormComponent {
     }
 
     toggleForm() {
+
+        alert(screen.availWidth + ', ' + screen.availHeight + ', ' + navigator.userAgent);
+
         if (this.loginUser && this.loginUser.username) {
             if (this.visible) {
                 this.amimation = 'flipOutY';

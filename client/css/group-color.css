@@ -1,50 +1,194 @@
 ﻿.sky, .forum ul li.sky {
-    background-color:rgb(124,165,195);
+    color:rgb(124,165,195);
 }
 .dark-green, .forum ul li.dark-green {
-    background-color:rgb(37,104,50);
+    color:rgb(37,104,50);
 }
 .orange, .forum ul li {
-    background-color:rgb(231,124,56);
+   color:rgb(231,124,56);
 }
 .red, .forum ul li.red {
-    background-color:rgb(210,30,30);
+    color:rgb(210,30,30);
 }
 .silver, .forum ul li.silver {
-    background-color:rgb(192,192,192);
+   color:rgb(192,192,192);
 }
 .gold, .forum ul li.gold {
-     background-color:rgb(240,200,0);
+     color:rgb(240,200,0);
 }
 .light-purple, .forum ul li.light-purple {
-    background-color:rgb(117,152,158);
+    color:rgb(117,152,158);
 }
 .light-black, .forum ul li.light-black {
-    background-color:rgb(48,42,30);
+    color:rgb(48,42,30);
 }
 .dark-blue, .forum ul li.dark-blue {
-   background-color: rgb(90,50,180);
+  color: rgb(97,131,185);
 }
 .yellow, .forum ul li.yellow {
-    background-color:rgb(200,200,55);
+    color:rgb(200,200,55);
 }
 .blood-red, .forum ul li.blood-red {
-    background-color:rgb(199,49,58);
+    color:rgb(199,49,58);
 }
 .pink, .forum ul li.pink {
-    background-color:rgb(185,60,100);
+    color:rgb(185,60,100);
 }
 .light-green, .forum ul li.light-green {
-    background-color:rgb(88,142,30);
+    color:rgb(151,178,52);
 }
 .dark-purple, .forum ul li.dark-purple {
-    background-color:rgb(65,26,79);
+    color:rgb(138,164,219);
 }
 .cream, .forum ul li.cream {
-    background-color:rgb(210,160,120);
+    color:rgb(210,160,120);
+}
+.blue-green {
+    color:rgb(92,157,172);
 }
 .sys {
-    background: #eee;
-    color: #666;
-    border: 2px solid #666;
+    color:#666;
+}
+
+li .fa {
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    background: #666;
+    border-radius: 25px;
+    padding-left: 13px;
+    padding-top: 13px;
+}
+li .fa.fa-paw {
+    padding-left: 14px;
+}
+li .fa.fa-book {
+    padding-left: 14px;
+}
+li .fa.fa-film {
+    padding-top: 12px;
+}
+li .fa.fa-car {
+    padding-left: 12px;
+}
+li .fa-university {
+    padding-left: 12px;
+}
+li .fa-map-o {
+    padding-left: 12px;
+}
+li .fa-balance-scale {
+    padding-left: 12px;
+}
+li .fa-gamepad {
+    padding-left: 12px;
+    padding-top: 12px;
+}
+li .fa-graduation-cap {
+    padding-left: 11px;
+    padding-top: 14px;
+}
+li .fa-heart {
+    padding-top: 14px;
+}
+li .fa-star {
+    padding-left: 14px;
+}  
+li .fa-star {
+    padding-left: 14px;
+}  
+
+li.blue-green .fa {
+    background-color: rgb(92,157,172);
+}
+li.cream {
+    border-color: rgb(210,160,120) !important;
+}
+li.cream .fa {
+    background-color:rgb(210,160,120);
+}
+li.pink {
+    border-color: rgb(185,60,100) !important;
+}
+li.pink .fa {
+    background-color:rgb(185,60,100);
+}
+li.red {
+    border-color: rgb(210,30,30) !important;
+}
+li.red .fa {
+    background-color:rgb(210,30,30);
+}
+li.silver {
+    border-color: rgb(192,192,192) !important;
+}
+li.silver .fa {
+    background-color:rgb(192,192,192);
+}
+li.light-green {
+    border-color: rgb(151,178,52) !important;
+}
+li.light-green .fa {
+    background-color:rgb(151,178,52);
+}
+li.dark-purple {
+    border-color: rgb(138,164,219) !important;
+}
+li.dark-purple .fa {
+    background-color:rgb(138,164,219);
+}
+li.orange {
+    border-color: rgb(231,124,56) !important;
+}
+li.orange .fa {
+    background-color:rgb(231,124,56);
+}
+li.light-black {
+    border-color: rgb(48,42,30) !important;
+}
+li.light-black .fa {
+    background-color:rgb(48,42,30);
+}
+li.dark-green {
+    border-color: rgb(37,104,50) !important;
+}
+li.dark-green .fa {
+    background-color:rgb(37,104,50);
+}
+li.sky {
+    border-color: rgb(124,165,195) !important;
+}
+li.sky .fa {
+    background-color:rgb(124,165,195);
+}
+li.blood-red {
+    border-color: rgb(199,49,58) !important;
+}
+li.blood-red .fa {
+    background-color:rgb(199,49,58);
+}
+li.yellow {
+    border-color: rgb(200,200,55) !important;
+}
+li.yellow .fa {
+    background-color:rgb(200,200,55);
+}
+li.dark-blue {
+    border-color: rgb(97,131,185) !important;
+}
+li.dark-blue .fa {
+    background-color:rgb(97,131,185);
+}
+li.gold {
+    border-color:rgb(240,200,0) !important;
+}
+li.gold .fa {
+    background-color:rgb(240,200,0);
+}
+
+li.light-purple {
+    border-color:rgb(117,152,158) !important;
+}
+li.light-purple .fa {
+    background-color:rgb(117,152,158);
 }

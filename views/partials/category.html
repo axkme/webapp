@@ -3,7 +3,7 @@
     <div class="col-xs-2 animated fadeIn" *ngFor="#category of categories">
         <div class="category {{category.color}}">
             <i class="fa {{category.icon}}"></i>
-            <span>{{category.name}}</span>
+            <span class="name">{{category.name}}</span>
         </div>
     </div>
     <div class="col-xs-2 animated fadeIn" (click)="openLogin()">
