@@ -1,7 +1,9 @@
 ﻿<div class="topic-header">
     <img class="header-image" src="/img/axkme-logo.png" width="300" />
     <div class="category-logo {{topic.category.color}} animated fadeIn" *ngIf="topicLoaded">
-        <i class="fa {{topic.category.icon}}"></i>
+       <a href="/categories/{{topic.category.id}}">
+         <i class="fa {{topic.category.icon}}"></i>
+        </a>
     </div>
 </div>
 

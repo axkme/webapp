@@ -27,6 +27,11 @@ app.use('/topics/ng2-cookies/', function (req, res) {
         res.status(200).send(data);
     });
 });
+app.use('/categories/ng2-cookies/', function (req, res) {
+    fs.readFile(__dirname + '/node_modules/ng2-cookies' + req.url + '.ts', function (err, data) {
+        res.status(200).send(data);
+    });
+});
 app.use(bodyParser.json());
 app.use('/api/v1', api);
 
@@ -40,6 +45,9 @@ app.get('/agreement', function (req, res) {
 
 app.get('/topics/:id', function (req, res) {
     res.status(200).render('topic.html');
+});
+app.get('/categories/:id', function (req, res) {
+    res.status(200).render('category.html');
 });
 
 app.use(function (err, req, res, next) {

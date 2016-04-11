@@ -10,5 +10,9 @@ export class CategoryService {
     getAll() {
         return this.http.get('/api/v1/categories').map(res => res.json());
     }
+
+    getById(id) {
+        return this.http.get('/api/v1/categories/' + id).map(res => res.json());
+    }
    
 }

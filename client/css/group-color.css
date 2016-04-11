@@ -1,94 +1,94 @@
-﻿.category.sky, .forum ul li.sky {
+﻿.category.sky, .forum ul li.sky, .category-name.sky  {
     color:rgb(124,165,195);
 }
 .category-logo.sky {
     background-color:rgb(124,165,195);
 }
-.category.dark-green, .forum ul li.dark-green {
+.category.dark-green, .forum ul li.dark-green, .category-name.dark-green {
     color:rgb(37,104,50);
 }
 .category-logo.dark-green{
     background-color:rgb(37,104,50);
 }
-.category.orange, .forum ul li.orange {
+.category.orange, .forum ul li.orange, .category-name.orange {
    color:rgb(231,124,56);
 }
 .category-logo.orange {
    background-color:rgb(231,124,56);
 }
-.category.red, .forum ul li.red {
+.category.red, .forum ul li.red, .category-name.red {
     color:rgb(210,30,30);
 }
 .category-logo.red {
     background-color:rgb(210,30,30);
 }
-.category.silver, .forum ul li.silver {
+.category.silver, .forum ul li.silver , .category-name.silver {
    color:rgb(192,192,192);
 }
 .category-logo.silver {
    background-color:rgb(192,192,192);
 }
-.category.gold, .forum ul li.gold {
+.category.gold, .forum ul li.gold, .category-name.gold {
      color:rgb(240,200,0);
 }
 .category-logo.gold {
      background-color:rgb(240,200,0);
 }
-.category.light-purple, .forum ul li.light-purple {
+.category.light-purple, .forum ul li.light-purple, .category-name.light-purple {
     color:rgb(117,152,158);
 }
 .category-logo.light-purple {
     background-color:rgb(117,152,158);
 }
-.category.light-black, .forum ul li.light-black {
+.category.light-black, .forum ul li.light-black, .category-name.light-black {
     color:rgb(48,42,30);
 }
 .category-logo.light-black {
     background-color:rgb(48,42,30);
 }
-.category.dark-blue, .forum ul li.dark-blue {
+.category.dark-blue, .forum ul li.dark-blue, .category-name.dark-blue {
   color: rgb(97,131,185);
 }
 .category-logo.dark-blue {
   background-color: rgb(97,131,185);
 }
-.category.yellow, .forum ul li.yellow {
+.category.yellow, .forum ul li.yellow, .category-name.yellow {
     color:rgb(200,200,55);
 }
 .category-logo.yellow {
     background-color:rgb(200,200,55);
 }
-.category.blood-red, .forum ul li.blood-red {
+.category.blood-red, .forum ul li.blood-red, .category-name.blood-red {
     color:rgb(199,49,58);
 }
 .category-logo.blood-red {
     background-color:rgb(199,49,58);
 }
-.category.pink, .forum ul li.pink {
+.category.pink, .forum ul li.pink, .category-name.pink {
     color:rgb(185,60,100);
 }
 .category-logo.pink {
     background-color:rgb(185,60,100);
 }
-.category.light-green, .forum ul li.light-green {
+.category.light-green, .forum ul li.light-green, .category-name.light-green {
     color:rgb(151,178,52);
 }
 .category-logo.light-green {
     background-color:rgb(151,178,52);
 }
-.category.dark-purple, .forum ul li.dark-purple {
+.category.dark-purple, .forum ul li.dark-purple, .category-name.dark-purple {
     color:rgb(138,164,219);
 }
 .category-logo.dark-purple {
     background-color:rgb(138,164,219);
 }
-.category.cream, .forum ul li.cream {
+.category.cream, .forum ul li.cream, .category-name.cream {
     color:rgb(210,160,120);
 }
 .category-logo.cream {
     background-color:rgb(210,160,120);
 }
-.blue-green {
+.blue-green, .category-name.blue-green {
     color:rgb(92,157,172);
 }
 .category-logo.blue-green {

@@ -6,7 +6,7 @@
         <div class="circle-border">
             <i class="fa fa-user"></i>
         </div>
-        <img *ngIf="isLoad" class="form-loading" src="img/balls.gif" />
+        <img *ngIf="isLoad" class="form-loading" src="/img/balls.gif" />
         <form *ngIf="!isLoad && !loginUser.username && !isRegisterSuccess" autocomplete="false">
             <p class="message-block" *ngIf="hasError">
                 <span>{{errorMessage}}</span>

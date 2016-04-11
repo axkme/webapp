@@ -1,18 +1,18 @@
 ﻿import {Component, Input} from 'angular2/core';
 import {Observable} from 'rxjs/Rx';
 import {EmitterService} from '../shared/emitter';
-import {Topic} from './topic.ts';
+import {Topic} from '../topic/topic.ts';
 import {Category} from '../category/category.ts';
 import {DateHelper} from '../shared/date.helper.ts';
-import {TopicService} from './topic.service.ts';
+import {TopicService} from '../topic/topic.service.ts';
 import {User} from '../user/user';
 
 @Component({
-    selector: 'topic-list',
-    templateUrl: '/views/partials/topic-list.html',
+    selector: 'category-topic-list',
+    templateUrl: '/views/partials/category-topic-list.html',
     providers: [TopicService, DateHelper]
 })
-export class TopicListComponent {
+export class TopicCategoryListComponent {
     dateHelper: DateHelper;
     topicLoaded: boolean;
     topics: Topic[];
@@ -34,7 +34,9 @@ export class TopicListComponent {
 
     constructor(_topicService: TopicService, _dateHelper: DateHelper) {
         this.dateHelper = _dateHelper
-        _topicService.getAll().subscribe(
+        let locs = location.href.split('/');
+        let id = locs[locs.length - 1];
+        _topicService.getByCategory(id).subscribe(
             data => this.loadSuccess(data),
             err => this.loadError(err),
             () => console.log('Get topics success'));

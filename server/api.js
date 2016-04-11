@@ -327,13 +327,16 @@ module.exports = function () {
         });
     });
 
-    app.get('/topics/category/:id', function (req, res) {
+    app.get('/category/topics/:id', function (req, res) {
         console.log(req.params);
         models.Topic.findAll({
+            order: 'createdAt DESC',
             where: { topic_category: req.params.id },
             include: [
-                { model: models.User, attributes: ['id','username', 'email'] }
-            ]
+                { model: models.Category },
+                { model: models.User, attributes: ['id','username'] }
+            ],
+            limit: 20
         }).then(function (model) {
             if (model) {
                 responseList(res, model);

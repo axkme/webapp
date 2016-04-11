@@ -1,10 +1,12 @@
 ﻿<img class="load" *ngIf="!categoryLoaded" src="img/balls.gif" />
 <div class="row" *ngIf="categoryLoaded">
     <div class="col-xs-2 animated fadeIn" *ngFor="#category of categories">
-        <div class="category {{category.color}}">
-            <i class="fa {{category.icon}}"></i>
-            <span class="name">{{category.name}}</span>
-        </div>
+        <a href="/categories/{{category.id}}">
+            <div class="category {{category.color}}">
+                <i class="fa {{category.icon}}"></i>
+                <span class="name">{{category.name}}</span>
+            </div>
+        </a>
     </div>
     <div class="col-xs-2 animated fadeIn" (click)="openLogin()">
         <div class="category sys">

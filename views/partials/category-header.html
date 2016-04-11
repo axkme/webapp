@@ -1,22 +1,39 @@
 ﻿<div class="col-md-12 header-content">
     <img class="header-image" src="/img/axkme-logo.png" width="300" />
-    <p class="slogan">ทุกคำถามมีคำตอบ มาหาคำตอบกับเราที่นี่</p>
+    <div class="breadcrumb">
+        <ul>
+            <li>
+                <a href="/">หน้าหลัก</a> 
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                {{category.name}}
+            </li>
+        </ul>
+    </div>
+    <div class="category-header">
+        <div class="category-logo {{category.color}}"><i class="fa {{category.icon}}"></i></div>
+        <div class="text">
+            <span class="category-name {{category.color}}">{{category.name}}</span>  
+            <span class="description"><i class="fa fa-quote-left"></i>{{category.description}}<i class="fa fa-quote-right"></i></span>
+        </div>
+    </div>
     <button type="button" class="btn btn-blue" (click)="toggleForm()"><i class="fa fa-pencil-square-o"></i> ถามเลยละกัน</button>
 </div>
 <div class="col-md-12">
-    <div class="topic-form {{amimation}}" *ngIf="visible">
+    <div class="topic-form category-screen {{amimation}}" *ngIf="visible">
         <h2>กรุณากรอกแบบฟอร์มเพื่อตั้งคำถาม</h2>
         <form class="form">
             <div class="form-group">
                 <label class="label label-default">หัวข้อคำถาม</label>
-                <input type="text" class="form-control" [(ngModel)]="model.title"/>
+                <input type="text" class="form-control" [(ngModel)]="model.title" />
             </div>
             <div class="form-group">
                 <label class="label label-default">หมวดหมู่ของคำถาม</label>
                 <div class="radio-list">
                     <div class="category-radio form-group" *ngFor="#category of categories">
-                        <input type="radio" class="form-control" (click)="categorySelect(category.id)" name="category" value="{{category.id}}"/>
-                        <i class="fa {{category.icon}}"></i> 
+                        <input type="radio" class="form-control" [checked]="category.id === model.category" (click)="categorySelect(category.id)" name="category" value="{{category.id}}" />
+                        <i class="fa {{category.icon}}"></i>
                         {{category.name}}
                     </div>
                 </div>
