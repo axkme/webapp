@@ -21,7 +21,6 @@ module.exports = function () {
         }
         var json = JSON.stringify(data);
         var model = JSON.parse(json);
-        console.log(model);
         if (model.user) {
             delete model.user['password'];
             delete model.user['createdAt'];
@@ -269,10 +268,11 @@ module.exports = function () {
         //Project.findAll({ offset: 10, limit: 2 })
 
         models.Topic.findAll({
-            order: 'createdAt DESC',
+            order: [["createdAt","DESC"]],
             include: [
                 { model: models.User },
-                { model: models.Category }
+                { model: models.Category },
+                { model: models.Comment, attributes: ['id'] }
             ],
             limit: 20
         }).then(function (topics) {
@@ -330,11 +330,12 @@ module.exports = function () {
     app.get('/category/topics/:id', function (req, res) {
         console.log(req.params);
         models.Topic.findAll({
-            order: 'createdAt DESC',
+            order: [["createdAt", "DESC"]],
             where: { topic_category: req.params.id },
             include: [
                 { model: models.Category },
-                { model: models.User, attributes: ['id','username'] }
+                { model: models.User, attributes: ['id', 'username'] },
+                { model: models.Comment, attributes: ['id'] }
             ],
             limit: 20
         }).then(function (model) {
@@ -351,17 +352,23 @@ module.exports = function () {
 
     //COMMENTS
     app.post('/comments', function (req, res) {
-        if (req.body.topic_id && req.body.message && req.body.post_by) {
-            var comment = req.body;
-            models.Comment.create(comment, { isNewRecord: true })
-            .then(function (model) {
-                responseObject(res, model);
-            }).catch(function (err) {
-                responseError(res, err.message + ', maybe check post_by and topic_id');
-            });
+        if (authorize.isAuthorize(req, ['administrator', 'user'])) {
+            if (req.body.topic_id && req.body.message) {
+                var comment = req.body;
+                comment.post_by = req.user.id;
+                models.Comment.create(comment, { isNewRecord: true })
+                .then(function (model) {
+                    responseObject(res, model);
+                }).catch(function (err) {
+                    responseError(res, err.message + ', maybe check post_by and topic_id');
+                });
+            }
+            else {
+                responseMessage(res, 'topic/message/post_by is required');
+            }
         }
         else {
-            responseMessage(res, 'topic/message/post_by is required');
+            responsePermission(res);
         }
     });
 
@@ -369,7 +376,7 @@ module.exports = function () {
         models.Comment.findAll({
             where: { topic_id: req.params.id},
             include: [
-                { model: models.User, attributes: ['id', 'username', 'email'] },
+                { model: models.User, attributes: ['id', 'username'] }
             ]}).then(function (model) {
             if (model) {
                 responseList(res, model);

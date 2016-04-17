@@ -1,5 +1,20 @@
 ﻿<div class="topic-header">
     <img class="header-image" src="/img/axkme-logo.png" width="300" />
+    <div class="breadcrumb" *ngIf="topicLoaded">
+        <ul>
+            <li>
+                <a href="/">หน้าหลัก</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="/categories/{{topic.category.id}}">{{topic.category.name}}</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                {{topic.title}}
+            </li>
+        </ul>
+    </div>
     <div class="category-logo {{topic.category.color}} animated fadeIn" *ngIf="topicLoaded">
        <a href="/categories/{{topic.category.id}}">
          <i class="fa {{topic.category.icon}}"></i>
@@ -18,5 +33,41 @@
         <div class="time">
             <i class="fa fa-clock-o"></i>เวลา: {{displayDate(topic.createdAt)}}
         </div>
+    </div>
+    <div class="comment-list">
+        <ul>
+            <li class="comment {{comment.user.id == topic.user.id? 'topic-owner':''}} animated fadeIn" *ngFor="#comment of comments">
+                <div class="comment-message">
+                    {{comment.message}}
+                </div>
+                <div class="info">
+                    <div class="by">
+                        <i class="fa fa-user"></i>โดย: {{comment.user.username}}
+                    </div>
+                    <div class="time">
+                        <i class="fa fa-clock-o"></i>เวลา: {{displayDate(comment.createdAt)}}
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <img class="load" src="/img/balls.gif" *ngIf="onCommentLoad" />
+    <div class="comment-box-container">
+        <h2>ตอบคำถาม</h2>
+        <p class="message-block" *ngIf="showWarning">กรุณาพิมพ์คำตอบก่อนกดส่ง</p>
+        <div *ngIf="onPostComment">
+            <div class="form-group">
+                <textarea class="form-control" [(ngModel)]="model.message" disabled></textarea>
+            </div>
+            <img class="load" src="/img/balls.gif" />
+            <button type="button" class="btn btn-default" (click)="submitComment()">กำลังส่ง...</button>
+        </div>
+        <div *ngIf="!onPostComment">
+            <div class="form-group">
+                <textarea class="form-control" [(ngModel)]="model.message"></textarea>
+            </div>
+            <button type="button" class="btn btn-default" (click)="submitComment()">ส่งคำตอบ</button>
+        </div>
+       
     </div>
 </div>

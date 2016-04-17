@@ -6,7 +6,7 @@
         <div class="circle-border">
             <i class="fa fa-user"></i>
         </div>
-        <img *ngIf="isLoad" class="form-loading" src="img/balls.gif" />
+        <img *ngIf="isLoad" class="form-loading" src="/img/balls.gif" />
         <form *ngIf="!isLoad && !isRegisterSuccess" autocomplete="false">
             <p class="message-block" *ngIf="hasError">
                 <span>{{errorMessage}}</span>
@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label>เบอร์โทรศัพท์</label>
-                <input type="password" class="form-control" [(ngModel)]="user.telephone" />
+                <input type="text" class="form-control" [(ngModel)]="user.telephone" />
             </div>
             <div class="form-group">
                 <label>

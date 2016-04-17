@@ -175,6 +175,7 @@ Topic.belongsTo(User, { foreignKey: 'post_by' });
 Topic.belongsTo(Category, { foreignKey: 'topic_category' });
 Comment.belongsTo(User, { foreignKey: 'post_by' });
 Comment.belongsTo(Topic, { foreignKey: 'topic_id' });
+Topic.hasMany(Comment, { foreignKey: 'topic_id' });
 
 exports.User = User;
 exports.Role = Role;

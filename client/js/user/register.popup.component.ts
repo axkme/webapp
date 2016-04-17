@@ -90,6 +90,7 @@ export class RegisterPopupComponent {
             this.visible = true;
             this.hasError = false;
             this.isLoad = false;
+            this.isRegisterSuccess = false;
             this.user = {};
         });
     }

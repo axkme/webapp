@@ -16,7 +16,7 @@ export class TopicFormComponent {
     visible: boolean;
     isLoad: boolean;
     amimation: string;
-    model: Topic;
+    model: any;
     validateModel: any;
     isMini2: boolean;
     categories: Category[];
@@ -111,7 +111,7 @@ export class TopicFormComponent {
 
     constructor(_topicService: TopicService) {
         this.topicService = _topicService;
-        this.model = new Topic();
+        this.model = {};
         this.categories = [];
         this.amimation = 'zoomIn';
         this.isLoad = false;
