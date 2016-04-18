@@ -29,6 +29,9 @@ export class TopicCategoryListComponent {
 
     loadSuccess(data) {
         this.topics = data;
+        if (data.length < this.limits) {
+            this.hasMore = false;
+        }
         setTimeout(() => {
             this.topicLoaded = true;
         }, 200);
