@@ -13,8 +13,14 @@ import {User} from '../user/user';
     providers: [TopicService, DateHelper]
 })
 export class TopicCategoryListComponent {
+    topicService: TopicService;
     dateHelper: DateHelper;
     topicLoaded: boolean;
+    hasMore: boolean;
+    onLoadMore: boolean;
+    page: number;
+    limits: number;
+    id: number;
     topics: Topic[];
 
     loadError(err: any) {
@@ -28,15 +34,47 @@ export class TopicCategoryListComponent {
         }, 200);
     }
 
+    loadMoreSuccess(data) {
+        if (data.length < this.limits) {
+            this.hasMore = false;
+        }
+        for (let i = 0; i < data.length; i++) {
+            this.topics.push(data[i]);
+        }
+        setTimeout(() => {
+            this.onLoadMore = false;
+        }, 200);
+    }
+
+    loadMoreError(err: any) {
+        console.log(err);
+        this.page -= 1;
+    }
+
+    loadMore() {
+        this.page += 1;
+        this.onLoadMore = true;
+        console.log('here');
+        this.topicService.getByCategory(this.id, this.page).subscribe(
+            data => this.loadMoreSuccess(data),
+            err => this.loadMoreError(err),
+            () => console.log('Get more topics success'));
+    }
+
     displayDate(date: any) {
         return this.dateHelper.convertDate(date);
     }
 
     constructor(_topicService: TopicService, _dateHelper: DateHelper) {
         this.dateHelper = _dateHelper
+        this.page = 1;
+        this.limits = 50;
+        this.hasMore = true;
+        this.onLoadMore = false;
+        this.topicService = _topicService;
         let locs = location.href.split('/');
-        let id = locs[locs.length - 1];
-        _topicService.getByCategory(id).subscribe(
+        this.id = parseInt(locs[locs.length - 1]);
+        this.topicService.getByCategory(this.id, this.page).subscribe(
             data => this.loadSuccess(data),
             err => this.loadError(err),
             () => console.log('Get topics success'));

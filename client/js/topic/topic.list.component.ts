@@ -13,8 +13,13 @@ import {User} from '../user/user';
     providers: [TopicService, DateHelper]
 })
 export class TopicListComponent {
+    topicService: TopicService;
     dateHelper: DateHelper;
     topicLoaded: boolean;
+    onLoadMore: boolean;
+    hasMore: boolean;
+    page: number;
+    limits: number;
     topics: Topic[];
 
     loadError(err: any) {
@@ -23,9 +28,39 @@ export class TopicListComponent {
 
     loadSuccess(data) {
         this.topics = data;
+        if (data.length < this.limits) {
+            this.hasMore = false;
+        }
         setTimeout(() => {
             this.topicLoaded = true;
         }, 200);
+    }
+
+    loadMoreSuccess(data) {
+        if (data.length < this.limits) {
+            this.hasMore = false;
+        }
+        for (let i = 0; i < data.length; i++) {
+            this.topics.push(data[i]);
+        }
+        setTimeout(() => {
+            this.onLoadMore = false;
+        }, 200);
+    }
+
+    loadMoreError(err: any) {
+        console.log(err);
+        this.page -= 1;
+    }
+
+    loadMore() {
+        this.page += 1;
+        this.onLoadMore = true;
+        console.log('here');
+        this.topicService.getAll(this.page).subscribe(
+            data => this.loadMoreSuccess(data),
+            err => this.loadMoreError(err),
+            () => console.log('Get more topics success'));
     }
 
     displayDate(date: any) {
@@ -33,8 +68,13 @@ export class TopicListComponent {
     }
 
     constructor(_topicService: TopicService, _dateHelper: DateHelper) {
+        this.onLoadMore = false;
+        this.hasMore = true;
+        this.page = 1;
+        this.limits = 50;
         this.dateHelper = _dateHelper
-        _topicService.getAll().subscribe(
+        this.topicService = _topicService;
+        this.topicService.getAll(this.page).subscribe(
             data => this.loadSuccess(data),
             err => this.loadError(err),
             () => console.log('Get topics success'));

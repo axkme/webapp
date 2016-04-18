@@ -21,4 +21,7 @@
             </a>
         </li>
     </ul>
+    <img class="load" src="/img/balls.gif" *ngIf="onLoadMore" />
+    <button type="button" class="btn btn-default load-more" *ngIf="topicLoaded && hasMore && !onLoadMore" (click)="loadMore()">โหลดเพิ่ม...</button>
+    <button type="button" class="btn btn-default load-more" disabled *ngIf="onLoadMore">กำลังโหลดเพิ่ม...</button>
 </div>

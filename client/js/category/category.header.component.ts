@@ -17,7 +17,7 @@ export class CategoryHeaderComponent {
     visible: boolean;
     isLoad: boolean;
     amimation: string;
-    model: Topic;
+    model: any;
     validateModel: any;
     isMini2: boolean;
     category: Category;
@@ -46,7 +46,8 @@ export class CategoryHeaderComponent {
                 }, 700);
             }
             else {
-                this.model = new Topic();
+                this.model = {};
+                this.model.category = this.category.id;
                 this.validateModel.isValid = true;
                 this.visible = true;
 
@@ -104,6 +105,7 @@ export class CategoryHeaderComponent {
         this.validate();
         if (this.validateModel.isValid) {
             this.isLoad = true;
+            console.log(this.model);
             this.topicService.create(this.model).subscribe(
                 data => this.onSubmitted(data),
                 err => this.onSubmitError(err),
@@ -125,7 +127,7 @@ export class CategoryHeaderComponent {
 
     constructor(_topicService: TopicService, _categoryService: CategoryService) {
         this.topicService = _topicService;
-        this.model = new Topic();
+        this.model = {};
         this.categories = [];
         this.category = new Category();
         this.amimation = 'zoomIn';
