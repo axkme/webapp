@@ -234,6 +234,7 @@ footer .contact .fa-mobile {
 .forum ul li .topic-name {
     display:block;
     font-size:28px;
+    width: calc(100% - 320px);
 }
 .forum ul li .info {
     float:right;
