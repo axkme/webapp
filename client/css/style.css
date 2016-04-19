@@ -683,6 +683,8 @@ span.description {
     margin-top:20px;
 }
 .comment-list li .comment-message {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 18px;
     overflow-wrap: break-word;
     word-wrap: break-word;
     -ms-word-break: break-all;
