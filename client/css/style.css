@@ -27,7 +27,7 @@ body {
     margin:0;
     font-size:24px;
     font-family: 'thaisanalite';
-    color:#666;
+    color:#333;
     min-width:992px;
     background-color: #f9f9f9;
 }
@@ -56,14 +56,14 @@ h1 {
     padding: 30px 10px;
     text-align: center;
     line-height: 1;
-    font-size: 22px;
+    font-size: 26px;
     color:#666;
     width:100%;
     margin-top:30px;
     background: #f2f2f2;
 }
 .category .name {
-    color:#666;
+    color:#333;
 }
 .category .fa {
     display:block;
@@ -101,7 +101,7 @@ footer p {
 footer .contact {
     float:right;
     width:280px;
-    font-size:20px;
+    font-size:22px;
 }
 footer .contact .fa {
     font-size:20px;
@@ -155,12 +155,12 @@ footer .contact .fa-mobile {
 .copyright a {
     display:block;
     color:#fff;
-    font-size: 18px;
+    font-size: 22px;
     margin-top: 15px;
 }
 .copyright-text {
     position:relative;
-    font-size: 20px;
+    font-size: 24px;
     top:10px;
 }
 .contact-heaader {
@@ -176,7 +176,7 @@ footer .contact .fa-mobile {
     float:left;
 }
 .slogan {
-    font-size:40px;
+    font-size:50px;
     text-shadow: 1px 1px 1px #ccc;
 }
 .ads-1 {
@@ -189,16 +189,16 @@ footer .contact .fa-mobile {
 }
 .forum h2 {
     color: #666;
-    padding: 10px 30px;
     margin-top: 50px;
     border-radius: 2px;
     border: 2px solid;
+    padding: 12px 30px 8px 30px;
 }
 
 .forum h2 span {
     position:relative;
     top:-5px;
-    font-size:24px;
+    font-size:30px;
 }
 .forum ul {
     list-style:none;
@@ -218,7 +218,7 @@ footer .contact .fa-mobile {
     border-radius:2px;
 }
 .forum ul li a {
-    color:#666;
+    color:#333;
     width:100%;
     padding:20px;
     display: inline-block;
@@ -233,6 +233,7 @@ footer .contact .fa-mobile {
 }
 .forum ul li .topic-name {
     display:block;
+    font-size:28px;
 }
 .forum ul li .info {
     float:right;
@@ -244,14 +245,14 @@ footer .contact .fa-mobile {
 }
 .forum ul li .info span.block {
     display:block;
-    font-size:20px;
+    font-size:22px;
     font-weight:normal;
 }
 .forum ul li .info label {
     font-weight:normal;
 }
 .ans-count {
-    font-size:20px;
+    font-size:22px;
 }
 .header-content {
     margin-top:70px;
@@ -399,7 +400,7 @@ input[type="checkbox"] {
 }
 .agreement-list p, .agreement-list li {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 2;
 }
 .agreement-btn.btn {
@@ -407,6 +408,8 @@ input[type="checkbox"] {
     background-color: rgb(91,192,222);
     color:#fff;
     border:none;
+    height: 55px;
+    padding-top: 16px
 }
 img.header-image {
     margin-bottom:20px;
@@ -528,13 +531,14 @@ input[type="radio"]:focus {
     box-shadow: 1px 1px 10px #999;
     background:#999;
     box-shadow: none;
+    right:15px;
 }
 .message {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size:16px;
+    font-size:18px;
     padding: 30px 25px;
     border-radius: 2px;
-    color:#888;
+    color:#666;
     box-shadow: 1px 1px 5px #999;
 	overflow-wrap: break-word;
     word-wrap: break-word;
