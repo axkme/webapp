@@ -18,24 +18,50 @@
     <link href="css/responsive.css" rel="stylesheet" />
     <link href="css/group-color.css" rel="stylesheet" />
 </head>
-<body>
-    <app>
+<body ng-controller="RootController" ng-cloak>
+    <div class="page-init" ng-show="!ready">
         <img class="page-loading" src="img/balls.gif" />
         <div class="seo-content">
             <h1><%= seo.description %></h1>
             <p><%= seo.body %> <%= seo.keywords %></p>
         </div>
-    </app>
+    </div>
+    <header ng-show="ready" ng-include="'views/partials/header.html'"></header>
+    <div class="container-fluid" ng-show="ready">
+        <div class="row">
+            <div class="ads ads-1">
+                <img src="img/banner.png" />
+            </div>
+        </div>
+    </div>
+    <div class="container content" ng-show="ready">
+        <div class="row" ng-include="'views/partials/topic-form-view.html'"></div>
+        <div class="row" ng-include="'views/partials/category-view.html'"></div>
+        <div class="row" ng-include="'views/partials/announces.html'"></div>
+        <div class="row" ng-include="'views/partials/new-topic-view.html'"></div>
+    </div>
+    <footer ng-show="ready" ng-include="'views/partials/footer.html'"></footer>
+    <div ng-include="'views/partials/user-popup-view.html'"></div>
+    <div ng-include="'views/partials/register-popup-view.html'"></div>
     <script src="libs/jquery/dist/jquery.min.js"></script>
-    <script src="libs/es6-shim/es6-shim.min.js"></script>
-    <script src="https://npmcdn.com/angular2@2.0.0-beta.13/es6/dev/src/testing/shims_for_IE.js"></script>
-    <script src="https://code.angularjs.org/tools/system.js"></script>
-    <script src="https://code.angularjs.org/tools/typescript.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.13/angular2-polyfills.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.13/Rx.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.13/angular2.dev.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.13/http.dev.js"></script>
-    <script src="js/configs/config.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular-cookies/angular-cookies.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/modules/configs/request.js"></script>
+    <script src="js/modules/user/services/user-service.js"></script>
+    <script src="js/modules/category/services/category-service.js"></script>
+    <script src="js/modules/topic/services/topic-service.js"></script>
+    <script src="js/modules/announce/services/announce-service.js"></script>
+    <script src="js/modules/helpers/services/date-helper.js"></script>
+    <script src="js/modules/base/controllers/root-controller.js"></script>
+    <script src="js/modules/user/controllers/user-controller.js"></script>
+    <script src="js/modules/user/controllers/user-popup-controller.js"></script>
+    <script src="js/modules/user/controllers/register-popup-controller.js"></script>
+    <script src="js/modules/base/controllers/header-controller.js"></script>
+    <script src="js/modules/category/controllers/category-controller.js"></script>
+    <script src="js/modules/topic/controllers/topic-form-controller.js"></script>
+    <script src="js/modules/topic/controllers/new-topic-controller.js"></script>
+    <script src="js/modules/announce/controllers/announce-controller.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/ga.js"></script>
 </body>

@@ -1,0 +1,39 @@
+﻿<div ng-controller="UserPopupController" class="popup animated {{animate}}" ng-show="visible">
+    <div class="popup-content">
+        <div class="close">
+            <i class="fa fa-remove" ng-click="close()"></i>
+        </div>
+        <div class="circle-border">
+            <i class="fa fa-user"></i>
+        </div>
+        <img ng-if="isLoad" class="form-loading" src="/img/balls.gif" />
+        <form ng-if="!isLoad && !user.username" autocomplete="false">
+            <p class="message-block" ng-if="error.has_error">
+                <span>{{error.message}}</span>
+            </p>
+            <div class="form-group">
+                <label>นามแฝง</label>
+                <input type="text" class="form-control" ng-model="model.username" />
+            </div>
+            <div class="form-group">
+                <label>รหัสผ่าน</label>
+                <input type="password" class="form-control" ng-model="model.password" />
+            </div>
+
+            <div class="button-group">
+                <button type="button" class="btn btn-success" ng-click="login()">เข้าใช้งาน</button>
+                <button type="button" class="btn btn-trans" ng-click="register()">สมัครใช้งาน</button>
+            </div>
+        </form>
+        <div class="user-profile" ng-if="!isLoad && user.username">
+            <h2>คุณได้ลงชื่อเข้าใช้โดย</h2>
+            <div class="user-name">
+                <label>นามแฝง: </label>
+                <span>{{user.username}}</span>
+            </div>
+            <div>
+                <button type="button" class="btn btn-trans" ng-click="logout()">ออกจากระบบ</button>
+            </div>
+        </div>
+    </div>
+</div>

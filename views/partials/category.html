@@ -1,4 +1,5 @@
-﻿<img class="load" *ngIf="!categoryLoaded" src="img/balls.gif" />
+﻿<h2><i class="fa fa-laptop"></i> <span>เลือกหมวดหมู่ที่สนใจ</span></h2>
+<img class="load" *ngIf="!categoryLoaded" src="img/balls.gif" />
 <div class="row" *ngIf="categoryLoaded">
     <div class="col-xs-2 animated fadeIn" *ngFor="#category of categories">
         <a href="/categories/{{category.id}}">

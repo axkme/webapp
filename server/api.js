@@ -86,6 +86,7 @@ module.exports = function () {
             var user = {
                 username: req.body.username,
                 password: bcrypt.hashSync(req.body.password),
+                email: req.body.email ? req.body.email : '',
                 telephone: req.body.telephone ? req.body.telephone : '',
                 user_role: 2,
                 sid: shortid.generate()
@@ -124,6 +125,18 @@ module.exports = function () {
         }).catch(function (err) {
             responseMessage(res, err.message ? err.message : err);
         });
+    });
+    app.post('/logout', function (req, res) {
+        if (authorize.isAuthorize(req, ['administrator', 'user'])) {
+            authorize.removeUser(req.user).then(function () {
+                res.status(200).send('');
+            }).catch(function (err) {
+                responseError(response, err.message);
+            });
+        }
+        else {
+            responsePermission(res);
+        }
     });
     app.get('/me', function (req, res) {
         if (authorize.isAuthorize(req, ['administrator', 'user'])) {
@@ -250,7 +263,7 @@ module.exports = function () {
         var url_params = url.parse(req.url, true);
         var queries = url_params.query;
         var p = 1;
-        var limits = 50;
+        var limits = 30;
         if (queries['p']) {
             p = parseInt(queries['p']);
         }
@@ -387,5 +400,69 @@ module.exports = function () {
         }
     });
 
+
+    //---------------------------------ANNOUNCES---------------------------------------
+    app.get('/announces', function (req, res) {
+        models.Announce.findAll({
+            where: { is_active: true },
+            include: [
+                { model: models.User, attributes: ['id', 'username'] }
+            ]
+        }).then(function (model) {
+            if (model) {
+                responseList(res, model);
+            }
+            else {
+                responseNotFound(res);
+            }
+        }).catch(function (err) {
+            responseError(res, err.message);
+        });
+    });
+    app.post('/announces', function (req, res) {
+        if (authorize.isAuthorize(req, ['administrator'])) {
+            if (req.body.title && req.body.message) {
+                var announce = {};
+                announce.title = req.body.title;
+                announce.message = req.body.message;
+                announce.post_by = req.user.id;
+                announce.is_active = true;
+                models.Announce.create(announce, { isNewRecord: true })
+                .then(function (model) {
+                    responseObject(res, model);
+                }).catch(function (err) {
+                    responseError(res, err.message);
+                });
+            }
+            else {
+                responseMessage(res, 'title, message are required');
+            }
+        }
+        else {
+            responsePermission(res);
+        }
+    });
+    app.patch('/announces', function (req, res) {
+        if (authorize.isAuthorize(req, ['administrator'])) {
+            var announce = req.body;
+            models.Announce.findById(announce.id).then(function (resAnnouncey) {
+                if (resAnnouncey) {
+                    resAnnouncey.updateAttributes(announce).then(function (model) {
+                        responseObject(res, model);
+                    }).catch(function () {
+                        responseError(res, err.message);
+                    });
+                }
+                else {
+                    responseNotFound(res);
+                }
+            }).catch(function (err) {
+                responseError(res, err.message);
+            });
+        }
+        else {
+                responsePermission(res);
+        }
+    });
     return app; 
 }();

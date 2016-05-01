@@ -6,6 +6,8 @@
   "author": "TuGG",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.5.5",
+    "angular-cookies": "^1.5.5",
     "angular2": "2.0.0-beta.13",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.0",

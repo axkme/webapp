@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AXK ME - แสดงผลลัพธ์หัวข้อคำถามที่ติดอันดับ Axk of the month</title>
+    <meta name="keywords" content="<%= seo.keywords %>" />
+    <meta name="description" content="แสดงผลลัพธ์หัวข้อคำถามที่ติดอันดับ Axk of the month" />
+    <meta property="og:url" content="http://www.axkme.com/top-month" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="แสดงผลลัพธ์หัวข้อคำถามที่ติดอันดับ Axk of the month" />
+    <meta property="og:description" content="แสดงผลลัพธ์หัวข้อคำถามที่ติดอันดับ Axk of the month" />
+    <meta property="og:image" content="http://www.axkme.com/img/axk-of-the-month.jpg" />
+    <link href="/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <link href="/css/responsive.css" rel="stylesheet" />
+    <link href="/css/group-color.css" rel="stylesheet" />
+    <link href="/css/animate.css" rel="stylesheet" />
+    <link href="/fonts/fas/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body ng-controller="RootController" ng-cloak>
+    <div class="page-init" ng-show="!ready">
+        <img class="page-loading" src="/img/balls.gif" />
+        <div class="seo-content">
+            <h1>แสดงผลลัพธ์หัวข้อคำถามที่ติดอันดับ Axk of the month</h1>
+            <p><%= seo.body %> <%= seo.keywords %></p>
+        </div>
+    </div>
+    <header ng-show="ready" ng-include="'/views/partials/header.html'"></header>
+    <div class="container-fluid" ng-show="ready">
+        <div class="row">
+            <div class="ads ads-1">
+                <img src="/img/banner.png" />
+            </div>
+        </div>
+    </div>
+    <div class="container content" ng-show="ready">
+        <div class="row">
+            <div class="col-md-12 header-content">
+                <img class="header-image" src="/img/axkme-logo.png" width="300" />
+                <div class="breadcrumb">
+                    <ul>
+                        <li>
+                            <a href="/">หน้าหลัก</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            หัวข้อคำถามที่ติดอันดับ Axk of the month
+                        </li>
+                    </ul>
+                </div>
+                <div class="category-logo agm event animated fadeIn">
+                    <i class="fa fa-calendar-o"></i>
+                </div>
+                <p class="slogan">แสดงผลลัพธ์หัวข้อคำถามที่ติดอันดับ Axk of the month</p>
+            </div>
+            <div class="col-md-12 forum">
+               <h2><i class="fa fa-question-circle"></i> <span class="section-title">หัวข้อคำถามที่ติดอันดับ</span></h2>
+               <p>ยังไม่สามารถตรวจสอบได้</p>
+                <a href="/" class="btn agreement-btn btn-blue"><i class="fa fa-reply"></i> กลับไปยังหน้าหลัก</a>
+            </div>
+        </div>
+    </div>
+    <footer ng-show="ready" ng-include="'/views/partials/footer.html'"></footer>
+    <div ng-include="'/views/partials/user-popup-view.html'"></div>
+    <div ng-include="'/views/partials/register-popup-view.html'"></div>
+    <script src="/libs/jquery/dist/jquery.min.js"></script>
+    <script src="/libs/angular/angular.min.js"></script>
+    <script src="/libs/angular-cookies/angular-cookies.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/modules/configs/request.js"></script>
+    <script src="/js/modules/user/services/user-service.js"></script>
+    <script src="/js/modules/base/controllers/root-controller.js"></script>
+    <script src="/js/modules/user/controllers/user-controller.js"></script>
+    <script src="/js/modules/user/controllers/user-popup-controller.js"></script>
+    <script src="/js/modules/user/controllers/register-popup-controller.js"></script>
+    <script src="/js/ga.js"></script>
+</body>
+</html>

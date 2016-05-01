@@ -1,0 +1,41 @@
+﻿<div class="col-md-12" ng-controller="HeaderController">
+    <div class="header-content">
+        <img class="header-image" src="/img/axkme-logo.png" width="300" />
+        <p class="slogan">ทุกคำถามมีคำตอบ มาหาคำตอบกับเราที่นี่</p>
+        <button type="button" class="btn btn-blue" ng-click="toggleForm()"><i class="fa fa-pencil-square-o"></i> ถามเลยละกัน</button>
+    </div>
+    <div ng-controller="TopicFormController" >
+        <div class="topic-form {{amimation}}" ng-if="visible">
+            <h2>กรุณากรอกแบบฟอร์มเพื่อตั้งคำถาม</h2>
+            <form class="form">
+                <div class="form-group">
+                    <label class="label label-default">หัวข้อคำถาม</label>
+                    <input type="text" class="form-control" ng-model="model.title" />
+                </div>
+                <div class="form-group">
+                    <label class="label label-default">หมวดหมู่ของคำถาม</label>
+                    <div class="radio-list">
+                        <div class="category-radio form-group" ng-repeat="category in categories">
+                            <input type="radio" class="form-control" ng-model="model.category" ng-click="categorySelect(category.id)" name="category" value="{{category.id}}" />
+                            <i class="fa {{category.icon}}"></i>
+                            {{category.name}}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="label label-default">ข้อความ</label>
+                    <textarea class="form-control" ng-model="model.message"></textarea>
+                </div>
+                <div class="button-container">
+                    <p class="message-block white" ng-if="!validateModel.isValid">
+                        <span>{{validateModel.message}}</span>
+                    </p>
+                    <button type="button" class="btn btn-black" ng-click="submit()"><i class="fa fa-external-link"></i> ส่งคำถาม</button>
+                </div>
+            </form>
+            <div class="indicator" ng-if="isLoad">
+                <img class="page-loading" src="/img/balls.gif" />
+            </div>
+        </div>
+    </div>
+</div>

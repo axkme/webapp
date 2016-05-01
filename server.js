@@ -45,9 +45,23 @@ app.get('/', function (req, res) {
 });
 
 app.get('/agreement', function (req, res) {
-    res.status(200).render('agreement.html');
+    res.status(200).render('agreement.html', { seo: seo });
 });
-
+app.get('/announces/:id', function (req, res) {
+    models.Announce.findOne({
+        where: { id: req.params.id }
+    }).then(function (model) {
+        if (model) {
+            seo.model = model.dataValues;
+            res.status(200).render('announce.html', { seo: seo });
+        }
+        else {
+            res.status(404).render('404.html');
+        }
+    }).catch(function (err) {
+        res.status(500).render('500.html');
+    });
+});
 app.get('/topics/:id', function (req, res) {
     models.Topic.findOne({
         where: { sid: req.params.id }
@@ -79,6 +93,10 @@ app.get('/categories/:id', function (req, res) {
         console.log(err);
         res.status(500).render('500.html');
     });
+});
+
+app.get('/top-month', function (req, res) {
+    res.status(200).render('top-month.html', { seo: seo });
 });
 
 app.use(function (err, req, res, next) {

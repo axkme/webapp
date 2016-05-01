@@ -24,6 +24,10 @@ var User = sequelize.define('users', {
         type: Sequelize.STRING,
         field: 'telephone'
     },
+    email: {
+        type: Sequelize.STRING,
+        field: 'email'
+    },
     user_role: {
         type: Sequelize.INTEGER,
         field: 'roleId'
@@ -170,6 +174,40 @@ var Comment = sequelize.define('comments', {
     freezeTableName: true
 });
 
+var Announce = sequelize.define('announces', {
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        field: 'id'
+    },
+    title: {
+        type: Sequelize.STRING,
+        field: 'title'
+    },
+    message: {
+        type: Sequelize.STRING,
+        field: 'message'
+    },
+    createdAt: {
+        type: Sequelize.DATE,
+        field: 'createdAt'
+    },
+    updatedAt: {
+        type: Sequelize.DATE,
+        field: 'updatedAt'
+    },
+    post_by: {
+        type: Sequelize.INTEGER,
+        field: 'userId'
+    },
+    is_active: {
+        type: Sequelize.INTEGER,
+        field: 'isActive'
+    }
+}, {
+    freezeTableName: true
+});
+
 
 User.belongsTo(Role, { foreignKey: 'user_role' });
 Topic.belongsTo(User, { foreignKey: 'post_by' });
@@ -177,9 +215,11 @@ Topic.belongsTo(Category, { foreignKey: 'topic_category' });
 Comment.belongsTo(User, { foreignKey: 'post_by' });
 Comment.belongsTo(Topic, { foreignKey: 'topic_id' });
 Topic.hasMany(Comment, { foreignKey: 'topic_id' });
+Announce.belongsTo(User, { foreignKey: 'post_by' });
 
 exports.User = User;
 exports.Role = Role;
 exports.Category = Category;
 exports.Topic = Topic;
 exports.Comment = Comment;
+exports.Announce = Announce;

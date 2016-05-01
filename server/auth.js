@@ -28,7 +28,7 @@ exports.authorizeUser = function (user) {
     var promise = new Promise(function (resolve, reject) {
         generateToken().then(function (token) {
             if (userSession[user.id]) {
-                delete tokenSession[userSession[user.id]];
+                //delete tokenSession[userSession[user.id]];
             }
             tokenSession[token] = user;
             userSession[user.id] = token;
@@ -42,6 +42,7 @@ exports.authorizeUser = function (user) {
 
 exports.removeUser = function (user) {
     var promise = new Promise(function (resolve, reject) {
+        console.log(user);
         if (userSession[user.id]) {
             var token = userSession[user.id];
             delete tokenSession[token];

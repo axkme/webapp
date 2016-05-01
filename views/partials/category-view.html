@@ -1,0 +1,26 @@
+﻿<div class="col-md-12 forum" ng-controller="CategoryController">
+    <h2><i class="fa fa-laptop"></i> <span>เลือกหมวดหมู่ที่สนใจ</span></h2>
+    <img class="load" ng-if="!categoryLoaded" src="img/balls.gif" />
+    <div class="row" ng-if="categoryLoaded">
+        <div class="col-xs-2 animated fadeIn" ng-repeat="category in categories">
+            <a href="/categories/{{category.id}}">
+                <div class="category {{category.color}}">
+                    <i class="fa {{category.icon}}"></i>
+                    <span class="name">{{category.name}}</span>
+                </div>
+            </a>
+        </div>
+        <div class="col-xs-2 animated fadeIn" ng-click="openLogin()">
+            <div class="category sys">
+                <i class="fa fa-user"></i>
+                <span>เข้าใช้งาน</span>
+            </div>
+        </div>
+        <div class="col-xs-2 animated fadeIn" ng-click="openRegister()">
+            <div class="category sys">
+                <i class="fa fa-user-plus"></i>
+                <span>สมัครใช้งาน</span>
+            </div>
+        </div>
+    </div>
+</div>

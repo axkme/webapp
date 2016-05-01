@@ -3,17 +3,12 @@
 module.exports = {
   up: function (queryInterface, Sequelize) {
       queryInterface.createTable(
-        'topics',
+        'announces',
         {
             id: {
                 type: Sequelize.INTEGER,
                 primaryKey: true,
                 autoIncrement: true
-            },
-            sid: {
-                type: Sequelize.STRING,
-                allowNull: false,
-                unique: true
             },
             createdAt: {
                 type: Sequelize.DATE,
@@ -34,11 +29,6 @@ module.exports = {
                 type: Sequelize.INTEGER,
                 allowNull: false,
                 references: { model: "users", key: "id" }
-            },
-            categoryId: {
-                type: Sequelize.INTEGER,
-                allowNull: false,
-                references: { model: "category", key: "id" }
             }
         }).then(function () {
             console.log('success');

@@ -4,6 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>AXK ME</title>
+    <meta name="keywords" content="<%= seo.keywords %>" />
+    <meta name="description" content="ข้อตกลงในการใช้งานเว็บไซต์" />
+    <meta property="og:url" content="http://www.axkme.com/agreement" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ข้อตกลงในการใช้งานเว็บไซต์" />
+    <meta property="og:description" content="ข้อตกลงในการใช้งานเว็บไซต์ www.axkme.com" />
+    <meta property="og:image" content="http://www.axkme.com/img/site-thumbnail.png" />
     <link href="libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/responsive.css" rel="stylesheet" />
@@ -11,26 +18,37 @@
     <link href="css/animate.css" rel="stylesheet" />
     <link href="fonts/fas/css/font-awesome.min.css" rel="stylesheet" />
 </head>
-<body>
-    <header>
-        <div class="logo">
-            <a href="/">
-                <img src="img/axkme-logo.png" width="150" />
-            </a>
+<body ng-controller="RootController" ng-cloak>
+    <div class="page-init" ng-if="!ready">
+        <img class="page-loading" src="/img/balls.gif" />
+        <div class="seo-content">
+            <h1>ข้อตกลงในการใช้งานเว็บไซต์</h1>
+            <p><%= seo.keywords %> ข้อตกลงในการใช้งานเว็บไซต์</p>
         </div>
-        <user-status></user-status>
-    </header>
-    <div class="container-fluid">
+    </div>
+    <header ng-show="ready" ng-include="'/views/partials/header.html'"></header>
+    <div class="container-fluid"  ng-show="ready">
         <div class="row">
             <div class="ads ads-1">
                 <img src="img/banner.png" />
             </div>
         </div>
     </div>
-    <div class="container content">
+    <div class="container content"  ng-show="ready">
         <div class="row">
             <div class="col-md-12 header-content">
                 <img class="header-image" src="img/axkme-logo.png" width="300" />
+                <div class="breadcrumb">
+                    <ul>
+                        <li>
+                            <a href="/">หน้าหลัก</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            ข้อตกลงในการใช้งานเว็บไซต์
+                        </li>
+                    </ul>
+                </div>
                 <div class="category-logo agm animated fadeIn" *ngIf="topicLoaded">
                     <i class="fa fa-exclamation"></i>
                 </div>
@@ -58,16 +76,19 @@
             </div>
         </div>
     </div>
-    <footer>
-        <div class="contact">
-            <p class="contact-heaader">ติดต่อสอบถาม</p>
-            <p><span class="contatc-label">โทรศัพท์:</span>  <i class="fa fa-mobile"></i> 087-303-3883</p>
-            <p><span class="contatc-label">อีเมลล์:</span> <i class="fa fa-envelope-o"></i> axkme.info@gmail.com</p>
-        </div>
-        <div class="copyright">
-            <span class="copyright-text">Copyright <i class="fa fa-copyright"></i> 2016, by AXK ME.</span>
-            <a href="/agreement">ข้อตกลงในการใช้งานเว็บไซต์</a>
-        </div>
-    </footer>
+    <footer ng-show="ready" ng-include="'/views/partials/footer.html'"></footer>
+    <div ng-include="'/views/partials/user-popup-view.html'"></div>
+    <div ng-include="'/views/partials/register-popup-view.html'"></div>
+    <script src="/libs/jquery/dist/jquery.min.js"></script>
+    <script src="/libs/angular/angular.min.js"></script>
+    <script src="/libs/angular-cookies/angular-cookies.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/modules/configs/request.js"></script>
+    <script src="/js/modules/user/services/user-service.js"></script>
+    <script src="/js/modules/base/controllers/root-controller.js"></script>
+    <script src="/js/modules/user/controllers/user-controller.js"></script>
+    <script src="/js/modules/user/controllers/user-popup-controller.js"></script>
+    <script src="/js/modules/user/controllers/register-popup-controller.js"></script>
+    <script src="/js/ga.js"></script>
 </body>
 </html>
