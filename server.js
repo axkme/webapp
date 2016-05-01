@@ -57,6 +57,10 @@ app.use(function (err, req, res, next) {
     res.status(500).send('error');
 });
 
+app.get('/googlecfe164b64a915d4d.html', function (req, res) {
+    res.status(200).render('googlecfe164b64a915d4d.html');
+});
+
 app.listen(app.get('port'), function () {
     console.log('App is running on port ' + app.get('port'));
 });
