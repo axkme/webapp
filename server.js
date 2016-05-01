@@ -7,6 +7,9 @@ var Connection = require('tedious').Connection;
 var bodyParser = require('body-parser');
 var api = require('./server/api');
 var seo = require('./config/seo');
+var sitemap = require('./server/sitemap');
+var models = require('./server/models');
+var helpers = require('./server/helpers');
 app.set('port', (process.env.PORT || 8000));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -46,10 +49,36 @@ app.get('/agreement', function (req, res) {
 });
 
 app.get('/topics/:id', function (req, res) {
-    res.status(200).render('topic.html');
+    models.Topic.findOne({
+        where: { sid: req.params.id }
+    }).then(function (model) {
+        if (model) {
+            seo.model = model.dataValues;
+            res.status(200).render('topic.html', { seo: seo });
+        }
+        else {
+            res.status(404).render('404.html');
+        }
+    }).catch(function (err) {
+        res.status(500).render('500.html');
+    });
 });
 app.get('/categories/:id', function (req, res) {
-    res.status(200).render('category.html');
+    models.Category.findOne({
+        where: { id: req.params.id }
+    }).then(function (model) {
+        if (model) {
+            seo.model = model.dataValues;
+            seo.model.keywords = helpers.replaceAll(seo.model.name, ' ', ', ');
+            res.status(200).render('category.html', { seo: seo });
+        }
+        else {
+            res.status(404).render('404.html');
+        }
+    }).catch(function (err) {
+        console.log(err);
+        res.status(500).render('500.html');
+    });
 });
 
 app.use(function (err, req, res, next) {
@@ -59,6 +88,20 @@ app.use(function (err, req, res, next) {
 
 app.get('/googlecfe164b64a915d4d.html', function (req, res) {
     res.status(200).render('googlecfe164b64a915d4d.html');
+});
+
+app.get('/sitemap.xml', function (req, res) {
+    sitemap().then(function (st) {
+        st.toXML(function (err, xml) {
+            if (err) {
+                return res.status(500).end();
+            }
+            res.header('Content-Type', 'application/xml');
+            res.send(xml);
+        });
+    }).catch(function () {
+        res.status(500).send('error');
+    });
 });
 
 app.listen(app.get('port'), function () {

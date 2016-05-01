@@ -1,4 +1,5 @@
-﻿var Sequelize = require('sequelize');
+﻿'use strict';
+var Sequelize = require('sequelize');
 var sequelize = require('./connection');
 
 var User = sequelize.define('users', {

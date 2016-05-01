@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AXK ME</title>
+    <title>AXK ME - <%= seo.model.name %></title>
+    <meta name="keywords" content="<%= seo.model.keywords %>" />
+    <meta name="description" content="<%= seo.model.description %>" />
     <link href="/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/css/animate.css" rel="stylesheet" />
     <link href="/fonts/fas/css/font-awesome.min.css" rel="stylesheet" />
@@ -12,7 +14,13 @@
     <link href="/css/group-color.css" rel="stylesheet" />
 </head>
 <body>
-    <app><img class="page-loading" src="/img/balls.gif" /></app>
+    <app>
+        <img class="page-loading" src="/img/balls.gif" />
+        <div class="seo-content">
+            <h1><%= seo.model.name %></h1>
+            <p><%= seo.model.description %></p>
+        </div>
+    </app>
     <script src="/libs/jquery/dist/jquery.min.js"></script>
     <script src="/libs/es6-shim/es6-shim.min.js"></script>
     <script src="https://npmcdn.com/angular2@2.0.0-beta.13/es6/dev/src/testing/shims_for_IE.js"></script>
