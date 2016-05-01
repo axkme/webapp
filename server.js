@@ -1,14 +1,16 @@
 'use strict';
 var express = require('express');
+var ejs = require('ejs');
 var fs = require('fs');
 var app = express();
 var Connection = require('tedious').Connection;
 var bodyParser = require('body-parser');
 var api = require('./server/api');
+var seo = require('./config/seo');
 app.set('port', (process.env.PORT || 8000));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
+app.engine('html', ejs.renderFile);
 app.use('/libs', express.static(__dirname + '/node_modules'));
 app.use('/css', express.static(__dirname + '/client/css'));
 app.use('/js', express.static(__dirname + '/client/js'));
@@ -36,7 +38,7 @@ app.use(bodyParser.json());
 app.use('/api/v1', api);
 
 app.get('/', function (req, res) {
-	res.status(200).render('index.html');
+    res.status(200).render('index.html', { seo: seo });
 });
 
 app.get('/agreement', function (req, res) {
