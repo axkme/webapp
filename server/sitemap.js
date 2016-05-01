@@ -8,28 +8,36 @@ var models = require('./models');
 */
 module.exports = function () {
     var promise = new Promise(function (resolve, reject) {
-        var categories, topics;
+        var categories, topics, announces;
         models.Category.all().then(function (res_categories) {
             categories = JSON.stringify(res_categories);
             categories = JSON.parse(categories);
             models.Topic.all().then(function (res_topics) {
                 topics = JSON.stringify(res_topics);
                 topics = JSON.parse(topics);
-                var site_urls = [];
-                for (var i = 0; i < categories.length; i++) {
-                    site_urls.push({ url: '/categories/' + categories[i].id, changefreq: 'monthly', priority: 0.5, lastmodISO: categories[i].updatedAt });
-                }
-                for (var i = 0; i < topics.length; i++) {
-                    site_urls.push({ url: '/topics/' + topics[i].sid, changefreq: 'weekly', priority: 0.5, lastmodISO: topics[i].updatedAt });
-                }
-                site_urls.push({ url: '/agreement', changefreq: 'monthly', priority: 0.3 });
-                var sitemap = sm.createSitemap({
-                    hostname: 'http://www.axkme.com',
-                    cacheTime: 86400,  //1days cache
-                    urls: site_urls
+                models.Announce.all().then(function (_announces) {
+                    announces = JSON.stringify(_announces);
+                    announces = JSON.parse(announces);
+                    var site_urls = [];
+                    for (var i = 0; i < categories.length; i++) {
+                        site_urls.push({ url: '/categories/' + categories[i].id, changefreq: 'monthly', priority: 0.5, lastmodISO: categories[i].updatedAt });
+                    }
+                    for (var i = 0; i < topics.length; i++) {
+                        site_urls.push({ url: '/topics/' + topics[i].sid, changefreq: 'weekly', priority: 0.5, lastmodISO: topics[i].updatedAt });
+                    }
+                    for (var i = 0; i < announces.length; i++) {
+                        site_urls.push({ url: '/announces/' + announces[i].id, changefreq: 'weekly', priority: 0.5, lastmodISO: topics[i].updatedAt });
+                    }
+                    site_urls.push({ url: '/agreement', changefreq: 'monthly', priority: 0.3 });
+                    var sitemap = sm.createSitemap({
+                        hostname: 'http://www.axkme.com',
+                        cacheTime: 86400,  //1days cache
+                        urls: site_urls
+                    });
+                    resolve(sitemap)
+                }).catch(function (err) {
+                    reject();
                 });
-                resolve(sitemap)
-
             }).catch(function (err) {
                 reject();
             });
