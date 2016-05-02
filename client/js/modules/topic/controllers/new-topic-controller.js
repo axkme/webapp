@@ -13,7 +13,11 @@ module.controller('NewTopicController', ['$scope', '$rootScope', '$timeout', 'To
     };
 
     $scope.loadTopics = function () {
-        $scope.isLoad = true;
+
+        if (!$scope.onLoadMore) {
+            $scope.isLoad = true;
+        }
+
         TopicService.getAll($scope.page).success(function (res) {
             if (res.length < $scope.limits) {
                 $scope.hasMore = false;
@@ -21,13 +25,13 @@ module.controller('NewTopicController', ['$scope', '$rootScope', '$timeout', 'To
             for (var i = 0; i < res.length; i++) {
                 $scope.topics.push(res[i]);
             }
-            $timeout(function () {
-                $scope.onLoadMore = false;
-            }, 200);
         }).error(function () {
 
         }).finally(function () {
-            $scope.isLoad = false;
+            $timeout(function () {
+                $scope.onLoadMore = false;
+                $scope.isLoad = false;
+            }, 200);
         });
     };
 

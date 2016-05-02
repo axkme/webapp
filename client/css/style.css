@@ -391,6 +391,9 @@ input[type=text], input[type=password] {
     background-color:rgb(91,192,222);
     color:#fff;
 }
+category-header .header-content .btn.btn-blue {
+    right: 15px;
+}
 .header-content .btn:active {
     background-color:rgb(91,192,235);
 }
