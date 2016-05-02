@@ -8,10 +8,11 @@ module.controller('NewTopicController', ['$scope', '$rootScope', '$timeout', 'To
     $scope.topics = [];
 
     $scope.onLoad = function () {
-        $scope.loadTopic();
+        $scope.loadTopics();
     };
 
-    $scope.loadTopic = function () {
+    $scope.loadTopics = function () {
+        $scope.isLoad = true;
         TopicService.getAll($scope.page).success(function (res) {
             if (res.length < $scope.limits) {
                 $scope.hasMore = false;
@@ -25,14 +26,14 @@ module.controller('NewTopicController', ['$scope', '$rootScope', '$timeout', 'To
         }).error(function () {
 
         }).finally(function () {
-            $scope.isLoad = true;
+            $scope.isLoad = false;
         });
     };
 
     $scope.loadMore = function () {
         $scope.page += 1;
         $scope.onLoadMore = true;
-        $scope.loadTopic();
+        $scope.loadTopics();
     };
     
     $scope.displayDate = function (date) {
