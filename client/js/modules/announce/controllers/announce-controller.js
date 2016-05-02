@@ -2,16 +2,17 @@
 module.controller('AnnounceController', ['$scope', '$rootScope', '$timeout', 'AnnounceService', 'DateHelper', function ($scope, $rootScope, $timeout, AnnounceService, DateHelper) {
 
     $scope.onLoad = function () {
-        $scope.loadTopic();
+        $scope.loadAnnounce();
     };
 
-    $scope.loadTopic = function () {
-        AnnounceService.getAll($scope.page).success(function (res) {
+    $scope.loadAnnounce = function () {
+        $scope.isLoad = true;
+        AnnounceService.getAll().success(function (res) {
             $scope.model = res;
         }).error(function () {
 
         }).finally(function () {
-            $scope.isLoad = true;
+            $scope.isLoad = false;
         });
     };
 
