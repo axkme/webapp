@@ -3,6 +3,7 @@ module.controller('NewTopicController', ['$scope', '$rootScope', '$timeout', 'To
 
     $scope.page = 1;
     $scope.limits = 30;
+    $scope.isLoad = false;
     $scope.hasMore = true;
     $scope.onLoadMore = false;
     $scope.topics = [];

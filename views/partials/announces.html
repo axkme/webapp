@@ -1,7 +1,7 @@
 ﻿<div class="col-md-12 forum" ng-controller="AnnounceController">
     <h2><i class="fa fa-calendar-o" aria-hidden="true"></i> <span>ประกาศ</span></h2>
-    <img class="load" src="img/balls.gif" ng-if="!isLoad" />
-    <ul ng-if="isLoad">
+    <img class="load" src="img/balls.gif" ng-if="isLoad" />
+    <ul ng-if="!isLoad">
         <li class="announce" ng-repeat="an in model">
             <a href="/announces/{{an.id}}">
                 <img src="/img/axk-of-the-month.jpg" />
@@ -23,7 +23,9 @@
             </a>
         </li>
     </ul>
+    <!--
     <img class="load" src="img/balls.gif" ng-if="onLoadMore" />
     <button type="button" class="btn btn-default load-more" ng-if="isLoad && hasMore && !onLoadMore" ng-click="loadMore()">โหลดเพิ่ม...</button>
     <button type="button" class="btn btn-default load-more" disabled ng-if="onLoadMore">กำลังโหลดเพิ่ม...</button>
+    -->
 </div>

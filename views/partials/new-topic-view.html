@@ -1,7 +1,7 @@
 ﻿<div class="col-md-12 forum" ng-controller="NewTopicController">
     <h2><i class="fa fa-question-circle"></i> <span>คำถามล่าสุด</span></h2>
-    <img class="load" src="img/balls.gif" ng-if="!isLoad" />
-    <ul ng-if="isLoad">
+    <img class="load" src="img/balls.gif" ng-if="isLoad" />
+    <ul ng-if="!isLoad">
         <li class="{{topic.category.color}}" ng-repeat="topic in topics">
             <a href="/topics/{{topic.sid}}">
                 <i class="fa {{topic.category.icon}}"></i>
@@ -23,6 +23,6 @@
         </li>
     </ul>
     <img class="load" src="img/balls.gif" ng-if="onLoadMore" />
-    <button type="button" class="btn btn-default load-more" ng-if="isLoad && hasMore && !onLoadMore" ng-click="loadMore()">โหลดเพิ่ม...</button>
+    <button type="button" class="btn btn-default load-more" ng-if="!isLoad && hasMore && !onLoadMore" ng-click="loadMore()">โหลดเพิ่ม...</button>
     <button type="button" class="btn btn-default load-more" disabled ng-if="onLoadMore">กำลังโหลดเพิ่ม...</button>
 </div>
