@@ -6,12 +6,12 @@ module.factory('DateHelper', ['$http', function ($http) {
     return {
         convertDate: function (date) {
             date = new Date(date);
-            let hour = date.getHours();
-            let min = date.getMinutes();
-            let sec = date.getSeconds();
-            let d = date.getDate();
-            let m = months[date.getMonth()];
-            let y = date.getFullYear() + 543;
+            var hour = date.getHours();
+            var min = date.getMinutes();
+            var sec = date.getSeconds();
+            var d = date.getDate();
+            var m = months[date.getMonth()];
+            var y = date.getFullYear() + 543;
             if (hour < 10) {
                 hour = '0' + hour;
             }
